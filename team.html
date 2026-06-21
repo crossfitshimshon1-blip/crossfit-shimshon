@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0F14" />
+  <title>צוות המאמנים | CrossFit Shimshon — קרוספיט שמשון</title>
+  <meta name="description" content="הכירו את צוות המאמנים של קרוספיט שמשון — מקצוענים מוסמכים שחיים ונושמים את הענף ומלווים אתכם בכל אימון, בכל רמה." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="צוות המאמנים | CrossFit Shimshon" />
+  <meta property="og:description" content="הצוות שמאחורי כל אימון — מקצוענות בלתי מתפשרת ולב ענק." />
+  <meta property="og:locale" content="he_IL" />
+
+  <!-- Fonts: Barlow/Barlow Condensed for Latin wordmark + Heebo/Assistant for Hebrew -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F97316',
+            'primary-light': '#FB923C',
+            'primary-dark': '#EA580C',
+            accent: '#22C55E',
+            ink: '#0B0F14',
+            'surface': '#121922',
+            'surface-2': '#1A2230',
+            'surface-3': '#222C3A',
+            line: '#283341',
+            'muted-fg': '#9AA8B8',
+          },
+          fontFamily: {
+            display: ['"Barlow Condensed"', '"Heebo"', 'sans-serif'],
+            body: ['"Assistant"', '"Barlow"', 'sans-serif'],
+          },
+          maxWidth: { content: '1200px' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --primary: #F97316;
+      --accent: #22C55E;
+      --ink: #0B0F14;
+      --nav-h: 76px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--ink); }
+
+    /* Anchor offset for sticky nav */
+    section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
+
+    /* Selection + scrollbar polish */
+    ::selection { background: var(--primary); color: #0B0F14; }
+    ::-webkit-scrollbar { width: 11px; }
+    ::-webkit-scrollbar-track { background: #0B0F14; }
+    ::-webkit-scrollbar-thumb { background: #2c3744; border-radius: 999px; border: 3px solid #0B0F14; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    /* Accessible focus ring */
+    :focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
+    .focus-ring:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    /* ── Background atmosphere ───────────────────────────── */
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .glow-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); opacity: .35; pointer-events: none; z-index: 0;
+    }
+    .noise::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .04; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ── Typography helpers ──────────────────────────────── */
+    .font-display { letter-spacing: .005em; }
+    .text-glow { text-shadow: 0 0 22px rgba(249, 115, 22, .45); }
+    .eyebrow { letter-spacing: .22em; }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #FDBA74 0%, #F97316 45%, #EA580C 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    /* ── Buttons ─────────────────────────────────────────── */
+    .btn { position: relative; overflow: hidden; isolation: isolate; transition: transform .18s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary { box-shadow: 0 10px 30px -8px rgba(249,115,22,.55); }
+    .btn-primary:hover { box-shadow: 0 16px 40px -8px rgba(249,115,22,.7); }
+    /* shine sweep */
+    .btn-shine::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+      transform: translateX(-120%); transition: transform .6s ease;
+    }
+    .btn-shine:hover::before { transform: translateX(120%); }
+
+    /* ── Cards ───────────────────────────────────────────── */
+    .card { transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s ease, box-shadow .3s ease, background-color .3s ease; }
+    .card-hover:hover { transform: translateY(-6px); border-color: rgba(249,115,22,.55); box-shadow: 0 24px 50px -24px rgba(0,0,0,.8), 0 0 0 1px rgba(249,115,22,.25); }
+
+    .ring-gradient { position: relative; }
+    .ring-gradient::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+      background: linear-gradient(140deg, rgba(249,115,22,.7), rgba(249,115,22,0) 40%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+
+    /* ── Scroll reveal ───────────────────────────────────── */
+    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); will-change: opacity, transform; }
+    [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    @keyframes bob { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(8px) } }
+    .bob { animation: bob 2.2s ease-in-out infinite; }
+
+    /* nav scrolled state */
+    #navbar { transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease, height .3s ease; }
+    #navbar.scrolled { background-color: rgba(11,15,20,.85); backdrop-filter: blur(14px); border-color: rgba(40,51,65,.9); box-shadow: 0 8px 30px -16px rgba(0,0,0,.9); }
+
+    /* mobile menu */
+    #mobileMenu { transition: opacity .3s ease, transform .3s ease; }
+    #mobileMenu.hidden-menu { opacity: 0; transform: translateY(-12px); pointer-events: none; }
+
+    /* back to top */
+    #toTop { transition: opacity .3s ease, transform .3s ease, background-color .25s ease; }
+    #toTop.hide { opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; }
+
+    /* ── Reduced motion: show everything, kill motion ───── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      .bob { animation: none; }
+    }
+    /* ── Coach profile modal (lightbox) ── */
+    .coach-modal { position: fixed; inset: 0; z-index: 100; display: none; }
+    .coach-modal.open { display: grid; place-items: center; padding: 1rem; }
+    .coach-modal-backdrop { position: absolute; inset: 0; background: rgba(11,15,20,.82); backdrop-filter: blur(6px); animation: coachFade .25s ease; }
+    .coach-modal-dialog { position: relative; z-index: 1; width: 100%; max-width: 32rem; max-height: 88vh; overflow-y: auto; border-radius: 1.5rem; animation: coachIn .3s cubic-bezier(.22,1,.36,1); }
+    @keyframes coachFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes coachIn { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: none; } }
+    .team-clickable { cursor: pointer; }
+    @media (prefers-reduced-motion: reduce) { .coach-modal-backdrop, .coach-modal-dialog { animation: none; } }
+  </style>
+</head>
+
+<body class="bg-ink font-body text-slate-200 antialiased selection:bg-primary">
+
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 focus:z-[100] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-bold focus:text-ink">דלגו לתוכן הראשי</a>
+
+  <!-- ════════════════════ NAVBAR ════════════════════ -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-transparent">
+    <nav class="mx-auto flex h-full max-w-content items-center justify-between gap-4 px-4 sm:px-6" aria-label="ניווט ראשי">
+      <!-- Logo -->
+      <a href="index.html" class="group flex items-center gap-2.5" aria-label="קרוספיט שמשון — לדף הבית">
+        <img src="LOGO.png" alt="קרוספיט שמשון" class="h-11 w-auto rounded-xl shadow-lg shadow-primary/30 transition-transform duration-300 group-hover:rotate-[-8deg]" />
+        <span class="flex flex-col leading-none">
+          <span class="font-display text-xl font-extrabold tracking-wide text-white">SHIMSHON</span>
+          <span class="text-[11px] font-semibold tracking-[.2em] text-primary">CROSSFIT</span>
+        </span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden items-center gap-1 lg:flex">
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#about">אודות</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-bold text-white" href="team.html" aria-current="page">הצוות</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#pricing">מנויים</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#contact">צור קשר</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="index.html#pricing" class="btn btn-primary btn-shine focus-ring hidden rounded-xl bg-primary px-5 py-2.5 text-sm font-extrabold text-ink sm:inline-flex">
+          ניסיון ראשון
+        </a>
+        <!-- Mobile toggle -->
+        <button id="menuBtn" type="button" class="grid h-11 w-11 place-items-center rounded-xl border border-line bg-surface/60 text-white lg:hidden" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="iconMenu" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="iconClose" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden-menu absolute inset-x-3 top-[calc(var(--nav-h)-6px)] z-50 overflow-hidden rounded-2xl border border-line bg-surface/95 p-2 shadow-2xl backdrop-blur-xl lg:hidden">
+      <ul class="flex flex-col">
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#about">אודות</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-bold text-primary" href="team.html" aria-current="page">הצוות</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#pricing">מנויים</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#contact">צור קשר</a></li>
+      </ul>
+      <a href="index.html#pricing" class="mobilelink btn btn-primary mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-extrabold text-ink">ניסיון ראשון</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ════════════════════ TEAM HERO ════════════════════ -->
+    <section class="noise relative overflow-hidden pt-[calc(var(--nav-h)+3.5rem)] pb-16 sm:pb-20">
+      <div class="absolute inset-0 z-0 bg-cover bg-center"
+           style="background-image:linear-gradient(to top, #0B0F14 6%, rgba(11,15,20,.78) 55%, rgba(11,15,20,.6) 100%), linear-gradient(to left, rgba(11,15,20,.4), rgba(11,15,20,.85)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1920&auto=format&fit=crop');"></div>
+      <div class="grid-bg absolute inset-0 z-0 opacity-60"></div>
+      <div class="glow-orb left-[-120px] top-0 h-[380px] w-[380px] bg-primary"></div>
+
+      <div class="relative z-10 mx-auto w-full max-w-content px-4 sm:px-6">
+        <!-- back link -->
+        <nav aria-label="ניווט" class="mb-6" data-reveal>
+          <a href="index.html#about" dir="ltr" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-muted-fg transition-colors hover:text-primary">
+            <svg aria-hidden="true" class="h-4 w-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
+            ABOUT US
+          </a>
+        </nav>
+
+        <div class="max-w-3xl" data-reveal>
+          <span class="eyebrow inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase text-primary-light">OUR TEAM</span>
+          <h1 class="mt-5 font-display text-5xl font-extrabold uppercase leading-[.95] text-white sm:text-7xl">
+            <span class="block text-glow">צוות</span>
+            <span class="block gradient-text">המאמנים</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
+            האנשים שמאחורי כל אימון — צוות מקצועי, מנוסה ומגוון שחי ונושם את הענף, ומלווה אתכם בהתאמה אישית, בבטיחות מלאה ובלב ענק.
+          </p>
+
+          <!-- credential pills -->
+          <ul class="mt-7 flex flex-wrap gap-2 text-xs font-bold text-slate-300">
+            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">7 מאמנים מוסמכים</li>
+            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">מכון וינגייט</li>
+            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">קמפוס שיאים</li>
+            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">הרמת משקולות אולימפית</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════ TEAM GRID ════════════════════ -->
+    <section id="team" class="relative overflow-hidden py-16 sm:py-20">
+      <div class="glow-orb right-1/4 top-10 h-[340px] w-[340px] bg-primary/25"></div>
+      <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
+        <div class="space-y-5">
+
+          <!-- Co-owners & co-managers — Shimi & Simona (two equal featured cards) -->
+          <div class="grid gap-5 sm:grid-cols-2">
+            <!-- Shimi Peretz -->
+            <article class="card relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-lg shadow-primary/10 sm:flex-row sm:items-center" data-reveal>
+              <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">מייסד ובעלים</span>
+              <span class="relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">שפ<img src="PHOTO/shimi.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-3xl font-bold leading-tight text-white">שימי פרץ</h2>
+                <span class="mt-1 block text-base font-bold text-primary">בעלים, מנהל המועדון ומאמן</span>
+                <p class="mt-4 leading-relaxed text-muted-fg">מתאמן בקרוספיט מעל 10 שנים ומאוהב בעצימות ובגיוון של הענף. מאמן מוסמך להרמת משקולות אולימפית, קרוספיט ואימון פונקציונלי מטעם המכללה הישראלית לספורט. חי ונושם את המועדון ואת ההשפעה המדהימה של הספורט על אנשים.</p>
+              </div>
+            </article>
+            <!-- Simona Herzberg -->
+            <article class="card relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-lg shadow-primary/10 sm:flex-row sm:items-center" data-reveal>
+              <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">בעלים</span>
+              <span class="relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">סה<img src="PHOTO/simona.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-3xl font-bold leading-tight text-white">סימונה הרצברג</h2>
+                <span class="mt-1 block text-base font-bold text-primary">בעלים, מתאמנת, מאמנת, תואר ראשון ושני מאוניברסיטת ת"א.</span>
+                <p class="mt-4 leading-relaxed text-muted-fg">במקצועי, מנהלת מחקרים קליניים. אתלטית תחרותית בעבר ומשוגעת קרוספיט בהווה. בוגרת קמפוס שיאים – מאמנת חדר כושר. נשואה +4. אוהבת את המועדון, את האושר והמסוגלות שהאימונים מביאים איתם.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-5">
+            <!-- Aviram Gerti -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אג<img src="PHOTO/aviram.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">אבירם גרטי</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמן</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">בוגר קמפוס שיאים כמאמן חדר כושר ומדריך הנפות אולימפיות. מתמחה בעולם האימון הפונקציונלי והקרוספיט, עם דגש מיוחד על התאמת אלטרנטיבות ופתרונות לכל תרגיל ולכל רמת מתאמן.</p>
+          </article>
+
+          <!-- Tanya Ostlov -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">טא<img src="PHOTO/tanya.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">טניה אוסטלוב</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">אחראית תוכנית האימונים ומאמנת</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">בוגרת מכון וינגייט ובעלת תעודות הסמכה בחדר כושר, הרמת משקולות אולימפית ושחייה. מאמנת מעל 10 שנים, מתאמנת בקרוספיט משנת 2012 ובוגרת 3 תחרויות RFA. אמא ל-3 המשלבת מקצוענות קפדנית עם אהבה ענקית לתחום.</p>
+          </article>
+
+          <!-- Moran Rosh -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">מר<img src="PHOTO/moran.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">מורן ראש</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמנת</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">בעלת תואר בחינוך מיוחד ותעודת מאמנת מקמפוס שיאים תל אביב. מתאמנת כ-6 שנים בקרוספיט, חיה ונושמת את האינטנסיביות, אתגרי הקצה והדחיפה העצמית קדימה.</p>
+          </article>
+
+          <!-- Inbal Ben-Zeev -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">עב<img src="PHOTO/inbal.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">ענבל בן־זאב</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמנת</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">מאמנת כושר מוסמכת מטעם מכון וינגייט, עם התמחות ייחודית בשיקום ובאימון לגיל השלישי. מתאמנת בקרוספיט כ-6 שנים, אוהבת את העצימות, האתגר הפיזי וההישגים שהספורט מביא איתו.</p>
+          </article>
+
+          <!-- Evelyn Walach -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">או<img src="PHOTO/evelin.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">אוולין וולך</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמנת</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">מאמנת כושר מוסמכת מקמפוס שיאים תל אביב. מתאמנת בקרוספיט קרוב ל-9 שנים ומאמנת מעל שנתיים בשמשון. אוהבת את הגיוון, האדרנלין והאתגר שבאימונים – אף פעם לא משעמם, ותמיד יש לאן להתקדם.</p>
+          </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════ CTA BAND ════════════════════ -->
+    <section class="noise relative overflow-hidden border-t border-line">
+      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image:linear-gradient(to left, rgba(11,15,20,.92), rgba(11,15,20,.7)), url('https://images.unsplash.com/photo-1534258936925-c58bed479fcf?q=80&w=1920&auto=format&fit=crop');"></div>
+      <div class="glow-orb right-1/4 top-0 h-[300px] w-[300px] bg-primary/40"></div>
+      <div class="relative z-10 mx-auto max-w-content px-4 py-20 text-center sm:px-6 sm:py-24" data-reveal>
+        <h2 class="mx-auto max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight text-white sm:text-5xl">
+          רוצים להתאמן עם <span class="gradient-text">הצוות שלנו</span>?
+        </h2>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">האימון הראשון עלינו. בואו להכיר את המאמנים ואת הקהילה מקרוב.</p>
+        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="index.html#pricing" class="btn btn-primary btn-shine focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-extrabold text-ink">
+            קבעו אימון ניסיון
+          </a>
+          <a href="#contact" class="btn focus-ring inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur hover:bg-white/10">
+            צרו קשר
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════ CONTACT / FOOTER ════════════════════ -->
+    <footer id="contact" class="relative border-t border-line bg-ink">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <!-- contact form -->
+          <div data-reveal>
+            <span class="eyebrow text-sm font-bold uppercase text-primary">GET IN TOUCH</span>
+            <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-white sm:text-5xl">בואו נתחיל</h2>
+            <p class="mt-4 max-w-md text-muted-fg">השאירו פרטים ונחזור אליכם לתיאום אימון ניסיון, בדרך כלל תוך יום עסקים אחד.</p>
+
+            <form class="mt-8 space-y-5" novalidate>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="name" class="mb-1.5 block text-sm font-bold text-slate-200">שם מלא <span class="text-primary" aria-hidden="true">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required class="focus-ring w-full rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-slate-500 focus:border-primary" placeholder="ישראל ישראלי" />
+                </div>
+                <div>
+                  <label for="phone" class="mb-1.5 block text-sm font-bold text-slate-200">טלפון <span class="text-primary" aria-hidden="true">*</span></label>
+                  <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required class="focus-ring w-full rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-slate-500 focus:border-primary" placeholder="050-0000000" />
+                </div>
+              </div>
+              <div>
+                <label for="email" class="mb-1.5 block text-sm font-bold text-slate-200">דוא״ל</label>
+                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" class="focus-ring w-full rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-slate-500 focus:border-primary" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="msg" class="mb-1.5 block text-sm font-bold text-slate-200">איך נוכל לעזור?</label>
+                <textarea id="msg" name="msg" rows="4" class="focus-ring w-full resize-y rounded-xl border border-line bg-surface px-4 py-3 text-white placeholder:text-slate-500 focus:border-primary" placeholder="אשמח לתאם אימון ניסיון..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-shine focus-ring inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-extrabold text-ink sm:w-auto">
+                שליחה ותיאום אימון
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </button>
+              <p id="formStatus" role="status" aria-live="polite" class="text-sm text-accent"></p>
+            </form>
+          </div>
+
+          <!-- details + map -->
+          <div data-reveal>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <a href="tel:+972529201835" class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-5 hover:text-white">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">טלפון</span><span class="block font-bold text-white">052-9201835</span></span>
+              </a>
+              <a href="mailto:hello@shimshon-cf.co.il" class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="block font-bold text-white">hello@shimshon-cf.co.il</span></span>
+              </a>
+              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white">צור יצחק</span></span>
+              </div>
+              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">שעות פעילות</span><span class="block font-bold text-white">א׳–ה׳ 06:00–22:00<br>ו׳ 08:00–13:00</span></span>
+              </div>
+            </div>
+
+            <!-- map -->
+            <div class="ring-gradient mt-4 overflow-hidden rounded-2xl border border-line">
+              <iframe
+                title="מפת מיקום קרוספיט שמשון"
+                src="https://www.google.com/maps?q=Tzur+Yitzhak&output=embed"
+                width="100%" height="240" style="border:0; filter: grayscale(.4) invert(.9) hue-rotate(180deg) contrast(.9);" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- bottom bar -->
+        <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-line pt-8 sm:flex-row">
+          <a href="index.html" class="flex items-center gap-2.5" aria-label="קרוספיט שמשון">
+            <span class="grid h-9 w-9 place-items-center rounded-lg bg-primary text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg></span>
+            <span class="font-display text-lg font-extrabold tracking-wide text-white">CROSSFIT SHIMSHON</span>
+          </a>
+
+          <!-- social -->
+          <div class="flex items-center gap-2">
+            <a href="https://www.instagram.com/crossfitshimshon/" target="_blank" rel="noopener" aria-label="עמוד האינסטגרם שלנו" class="focus-ring grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+            </a>
+            <a href="https://www.facebook.com/crossfitshimshon/" target="_blank" rel="noopener" aria-label="עמוד הפייסבוק שלנו" class="focus-ring grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://wa.me/972529201835?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" aria-label="שלחו לנו וואטסאפ" class="focus-ring grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-accent/60 hover:text-accent">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.39-.15-.19-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.03-2.45.27-.29.59-.37.79-.37.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.03.89 2.18.07.15.12.32.02.51-.09.19-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.16 1.52 1.88 1.04.93 1.92 1.21 2.19 1.35.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <p class="mt-8 text-center text-sm text-muted-fg">© <span id="year">2026</span> CrossFit Shimshon. כל הזכויות שמורות. · <a href="terms.html" class="font-semibold text-slate-300 underline-offset-4 transition-colors hover:text-primary hover:underline">תקנון המועדון</a></p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- floating WhatsApp -->
+  <a href="https://wa.me/972529201835?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" aria-label="צרו קשר בוואטסאפ" class="focus-ring fixed bottom-5 left-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-accent text-white shadow-xl shadow-accent/30 transition-transform hover:scale-110">
+    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.13c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.39-.15-.19-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.03-2.45.27-.29.59-.37.79-.37.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.03.89 2.18.07.15.12.32.02.51-.09.19-.14.31-.27.48-.14.16-.29.36-.41.49-.14.14-.28.29-.12.57.16.27.71 1.16 1.52 1.88 1.04.93 1.92 1.21 2.19 1.35.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.45.2.51.31.07.11.07.63-.17 1.31z"/></svg>
+  </a>
+
+  <!-- back to top -->
+  <button id="toTop" type="button" class="hide focus-ring fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-full border border-line bg-surface/90 text-white backdrop-blur hover:bg-primary hover:text-ink" aria-label="חזרה לראש העמוד">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script>
+  (function () {
+    'use strict';
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Current year ── */
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    /* ── Navbar scroll state + back-to-top ── */
+    var navbar = document.getElementById('navbar');
+    var toTop = document.getElementById('toTop');
+    function onScroll() {
+      var y = window.scrollY;
+      if (navbar) navbar.classList.toggle('scrolled', y > 24);
+      if (toTop) toTop.classList.toggle('hide', y < 500);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (toTop) toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    /* ── Mobile menu ── */
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var iconMenu = document.getElementById('iconMenu');
+    var iconClose = document.getElementById('iconClose');
+    function setMenu(open) {
+      if (!mobileMenu) return;
+      mobileMenu.classList.toggle('hidden-menu', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+      iconMenu.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+    }
+    if (menuBtn) {
+      menuBtn.addEventListener('click', function () {
+        setMenu(mobileMenu.classList.contains('hidden-menu'));
+      });
+      document.querySelectorAll('.mobilelink').forEach(function (l) {
+        l.addEventListener('click', function () { setMenu(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+          setMenu(false); menuBtn.focus();
+        }
+      });
+    }
+
+    /* ── Scroll reveal (IntersectionObserver) ── */
+    var revealEls = document.querySelectorAll('[data-reveal]');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var siblings = Array.prototype.slice.call(el.parentElement.querySelectorAll(':scope > [data-reveal]'));
+            var idx = siblings.indexOf(el);
+            el.style.transitionDelay = (idx > 0 ? Math.min(idx, 6) * 70 : 0) + 'ms';
+            el.classList.add('is-visible');
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    }
+
+    /* ── Contact form (front-end demo handling) ── */
+    var form = document.querySelector('#contact form');
+    var status = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = form.querySelector('#name');
+        var phone = form.querySelector('#phone');
+        var ok = true;
+        [name, phone].forEach(function (f) {
+          if (!f.value.trim()) {
+            ok = false;
+            f.classList.add('border-red-500');
+            f.setAttribute('aria-invalid', 'true');
+          } else {
+            f.classList.remove('border-red-500');
+            f.removeAttribute('aria-invalid');
+          }
+        });
+        if (!ok) {
+          status.classList.remove('text-accent');
+          status.classList.add('text-red-400');
+          status.textContent = 'נא למלא שם וטלפון כדי שנוכל לחזור אליכם.';
+          var firstInvalid = form.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+        status.classList.remove('text-red-400');
+        status.classList.add('text-accent');
+        status.textContent = 'תודה! קיבלנו את הפרטים ונחזור אליכם בהקדם לתיאום אימון ניסיון.';
+        form.reset();
+      });
+    }
+  })();
+  </script>
+  <!-- ════════════════════ COACH PROFILE MODAL ════════════════════ -->
+  <div id="coachModal" class="coach-modal" role="dialog" aria-modal="true" aria-label="פרופיל מאמן" aria-hidden="true">
+    <div class="coach-modal-backdrop" data-close></div>
+    <div class="coach-modal-dialog border border-primary/30 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-2xl shadow-primary/10" role="document">
+      <button type="button" id="coachModalClose" class="focus-ring absolute left-4 top-4 grid h-10 w-10 place-items-center rounded-full border border-line bg-surface/80 text-slate-300 transition-colors hover:border-primary hover:text-primary" aria-label="סגירת חלון">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+      <div id="coachModalBody" class="pt-6"></div>
+    </div>
+  </div>
+
+  <script>
+    /* ── Coach profile lightbox/modal ── */
+    (function () {
+      var modal = document.getElementById('coachModal');
+      if (!modal) return;
+      var body = document.getElementById('coachModalBody');
+      var closeBtn = document.getElementById('coachModalClose');
+      var cards = document.querySelectorAll('#team article');
+      var lastFocus = null;
+
+      function buildContent(card) {
+        var nameEl = card.querySelector('h2');
+        var name = nameEl ? nameEl.textContent.trim() : '';
+        var role = (nameEl && nameEl.nextElementSibling) ? nameEl.nextElementSibling.textContent.trim() : '';
+        var descEl = card.querySelector('p');
+        var desc = descEl ? descEl.textContent.trim() : '';
+        var avatar = card.querySelector('span[aria-hidden="true"]');
+        var initial = avatar ? avatar.textContent.trim() : '';
+        var img = card.querySelector('img');
+        var src = img ? img.getAttribute('src') : '';
+        var imgTag = src ? '<img src="' + src + '" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/>' : '';
+        return '<div class="flex flex-col items-center text-center">' +
+            '<span class="relative grid h-28 w-28 shrink-0 place-items-center overflow-hidden rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-5xl font-extrabold text-primary ring-1 ring-primary/30">' + initial + imgTag + '</span>' +
+            '<h2 class="mt-5 font-display text-2xl font-bold text-white">' + name + '</h2>' +
+            (role ? '<span class="mt-1.5 block text-sm font-bold text-primary">' + role + '</span>' : '') +
+            '<p class="mt-5 leading-relaxed text-muted-fg">' + desc + '</p>' +
+          '</div>';
+      }
+      function openModal(card) {
+        lastFocus = document.activeElement;
+        body.innerHTML = buildContent(card);
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        body.innerHTML = '';
+        if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { lastFocus.focus(); } }
+      }
+      cards.forEach(function (card) {
+        card.classList.add('team-clickable');
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('title', 'לחצו לצפייה בפרופיל המלא');
+        card.addEventListener('click', function () { openModal(card); });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); openModal(card); }
+        });
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal || (e.target.hasAttribute && e.target.hasAttribute('data-close'))) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>
