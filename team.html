@@ -57,6 +57,10 @@
     html { scroll-behavior: smooth; }
     body { background-color: var(--ink); }
 
+    /* ── Desktop display scale — page reads too small at 100% browser zoom ── */
+    @media (min-width: 1024px) { html { zoom: 1.15; } }
+    @media (min-width: 1440px) { html { zoom: 1.25; } }
+
     /* Anchor offset for sticky nav */
     section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
@@ -460,10 +464,481 @@
           </div>
         </div>
 
-        <p class="mt-8 text-center text-sm text-muted-fg">© <span id="year">2026</span> CrossFit Shimshon. כל הזכויות שמורות. · <a href="terms.html" class="font-semibold text-slate-300 underline-offset-4 transition-colors hover:text-primary hover:underline">תקנון המועדון</a></p>
+        <p class="mt-8 text-center text-sm text-muted-fg">© <span id="year">2026</span> CrossFit Shimshon. כל הזכויות שמורות. · <a href="terms.html" class="font-semibold text-slate-300 underline-offset-4 transition-colors hover:text-primary hover:underline">תקנון המועדון</a> · <a href="accessibility.html" class="font-semibold text-slate-300 underline-offset-4 transition-colors hover:text-primary hover:underline">הצהרת נגישות</a></p>
       </div>
     </footer>
   </main>
+
+    <!-- ═══════════════ תפריט נגישות (ת"י 5568 / תקנות שוויון זכויות) ═══════════════ -->
+  <style id="a11y-styles">
+    /* ── Feature classes applied to <html> ─────────────────────────────── */
+    html.a11y-links a,
+    html.a11y-links a * { text-decoration: underline !important; text-underline-offset: 3px !important; }
+    html.a11y-links a { outline: 2px solid #ffd400 !important; outline-offset: 2px !important; background-color: rgba(255,212,0,.14) !important; border-radius: 3px; }
+
+    html.a11y-readable, html.a11y-readable *:not(.a11y-ui):not(.a11y-ui *) {
+      font-family: "Arial", "Assistant", "Segoe UI", sans-serif !important;
+      letter-spacing: .02em !important;
+      line-height: 1.7 !important;
+      font-weight: 500 !important;
+    }
+
+    html.a11y-noanim, html.a11y-noanim *:not(.a11y-ui):not(.a11y-ui *),
+    html.a11y-noanim *::before, html.a11y-noanim *::after {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+      scroll-behavior: auto !important;
+    }
+    html.a11y-noanim [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+    html.a11y-cursor, html.a11y-cursor *:not(.a11y-ui):not(.a11y-ui *) {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 32 32"><path d="M6 2l0 23 5.5-5.5 3.2 7.5 4.2-1.8-3.2-7.4 7.6 0z" fill="black" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>') 5 2, auto !important;
+    }
+
+    /* High-contrast dark — widget (.a11y-ui) explicitly excluded */
+    html.a11y-hc-dark, html.a11y-hc-dark body { background: #000 !important; }
+    html.a11y-hc-dark *:not(.a11y-ui):not(.a11y-ui *) {
+      background-color: #000 !important;
+      color: #fff !important;
+      border-color: #fff !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      background-image: none !important;
+    }
+    html.a11y-hc-dark a:not(.a11y-ui):not(.a11y-ui *),
+    html.a11y-hc-dark a:not(.a11y-ui) * { color: #ffed4a !important; text-decoration: underline !important; }
+    html.a11y-hc-dark button:not(.a11y-ui):not(.a11y-ui *),
+    html.a11y-hc-dark input, html.a11y-hc-dark textarea, html.a11y-hc-dark select {
+      background: #000 !important; color: #fff !important; border: 1px solid #fff !important;
+    }
+    html.a11y-hc-dark img:not(.a11y-ui) { filter: grayscale(1) contrast(1.1) !important; }
+
+    /* High-contrast light */
+    html.a11y-hc-light, html.a11y-hc-light body { background: #fff !important; }
+    html.a11y-hc-light *:not(.a11y-ui):not(.a11y-ui *) {
+      background-color: #fff !important;
+      color: #111 !important;
+      border-color: #111 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      background-image: none !important;
+    }
+    html.a11y-hc-light a:not(.a11y-ui):not(.a11y-ui *),
+    html.a11y-hc-light a:not(.a11y-ui) * { color: #0000cc !important; text-decoration: underline !important; }
+    html.a11y-hc-light img:not(.a11y-ui) { filter: contrast(1.1) !important; }
+
+    /* ── The widget itself (immune to page + contrast overrides) ───────── */
+    #a11y-fab {
+      position: fixed; inset-inline-start: 20px; bottom: 88px; z-index: 999998;
+      width: 54px; height: 54px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: #1d4ed8; color: #fff; border: 3px solid #fff;
+      box-shadow: 0 8px 26px rgba(0,0,0,.4); cursor: pointer;
+      padding: 0; transition: transform .16s ease, background-color .16s ease;
+      touch-action: none; user-select: none; -webkit-user-select: none;
+    }
+    #a11y-fab:hover { background: #1e40af; transform: scale(1.06); }
+    #a11y-fab.is-dragging { cursor: grabbing; transition: none; transform: none; box-shadow: 0 12px 34px rgba(0,0,0,.5); }
+    #a11y-fab svg { width: 30px; height: 30px; pointer-events: none; }
+    #a11y-fab:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    #a11y-panel {
+      position: fixed; inset-inline-start: 20px; bottom: 152px; z-index: 999999;
+      width: 320px; max-width: calc(100vw - 40px);
+      max-height: calc(100vh - 180px); overflow-y: auto;
+      display: none; flex-direction: column;
+      background: #ffffff; color: #16202e;
+      border: 1px solid #d7dce3; border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      font-family: "Assistant", "Heebo", Arial, sans-serif;
+      direction: rtl; text-align: right;
+      -webkit-font-smoothing: antialiased;
+    }
+    #a11y-panel.is-open { display: flex; }
+
+    #a11y-panel .a11y-head {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 14px 16px; border-bottom: 1px solid #e6e9ee;
+      background: #1d4ed8; color: #fff; border-radius: 16px 16px 0 0;
+      position: sticky; top: 0;
+    }
+    #a11y-panel .a11y-head-title { display: flex; align-items: center; gap: 9px; font-size: 17px; font-weight: 800; }
+    #a11y-panel .a11y-head-title svg { width: 22px; height: 22px; }
+    #a11y-panel .a11y-close {
+      width: 32px; height: 32px; border-radius: 8px; border: 0; cursor: pointer;
+      background: rgba(255,255,255,.16); color: #fff; font-size: 18px; line-height: 1;
+      display: grid; place-items: center;
+    }
+    #a11y-panel .a11y-close:hover { background: rgba(255,255,255,.3); }
+
+    #a11y-panel .a11y-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+    #a11y-panel .a11y-font-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 10px 12px; background: #f3f5f9; border: 1px solid #e2e6ec; border-radius: 12px;
+    }
+    #a11y-panel .a11y-font-label { font-size: 14px; font-weight: 700; }
+    #a11y-panel .a11y-font-ctrls { display: flex; align-items: center; gap: 8px; }
+    #a11y-panel .a11y-step {
+      min-width: 40px; height: 36px; padding: 0 10px; border-radius: 9px;
+      border: 1px solid #c7ccd6; background: #fff; color: #16202e;
+      font-size: 15px; font-weight: 800; cursor: pointer;
+    }
+    #a11y-panel .a11y-step:hover { border-color: #1d4ed8; color: #1d4ed8; }
+    #a11y-panel .a11y-font-val { min-width: 48px; text-align: center; font-size: 14px; font-weight: 800; }
+
+    #a11y-panel .a11y-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    #a11y-panel .a11y-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+      text-align: center; min-height: 74px; padding: 10px 8px;
+      border: 1px solid #dbe0e8; border-radius: 12px; background: #fff; color: #223;
+      font-size: 12.5px; font-weight: 700; line-height: 1.25; cursor: pointer;
+      transition: border-color .14s ease, background-color .14s ease, color .14s ease;
+    }
+    #a11y-panel .a11y-btn svg { width: 22px; height: 22px; }
+    #a11y-panel .a11y-btn:hover { border-color: #1d4ed8; color: #1d4ed8; background: #f4f7ff; }
+    #a11y-panel .a11y-btn[aria-pressed="true"] {
+      background: #1d4ed8; border-color: #1d4ed8; color: #fff;
+    }
+    #a11y-panel .a11y-btn:focus-visible,
+    #a11y-panel .a11y-step:focus-visible,
+    #a11y-panel .a11y-close:focus-visible,
+    #a11y-panel .a11y-reset:focus-visible,
+    #a11y-panel .a11y-statement:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }
+
+    #a11y-panel .a11y-reset {
+      margin-top: 2px; padding: 11px 12px; border-radius: 11px;
+      border: 1px solid #e0b4b4; background: #fdf2f2; color: #a12b2b;
+      font-size: 14px; font-weight: 800; cursor: pointer;
+    }
+    #a11y-panel .a11y-reset:hover { background: #fbe4e4; }
+
+    #a11y-panel .a11y-statement {
+      display: block; text-align: center; padding-top: 4px;
+      font-size: 13.5px; font-weight: 700; color: #1d4ed8; text-decoration: none;
+    }
+    #a11y-panel .a11y-statement:hover { text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      #a11y-fab { width: 50px; height: 50px; bottom: 84px; }
+      #a11y-fab svg { width: 28px; height: 28px; }
+      #a11y-panel {
+        inset-inline-start: auto;
+        left: 50%; right: auto;
+        transform: translateX(-50%);
+        width: min(340px, 92vw);
+        bottom: 140px;
+      }
+    }
+  </style>
+
+  <!-- Accessibility floating button -->
+  <button id="a11y-fab" class="a11y-ui" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות" title="תפריט נגישות — לחצו לפתיחה · ניתן לגרור להזזה">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+  </button>
+
+  <!-- Accessibility menu -->
+  <div id="a11y-panel" class="a11y-ui" role="dialog" aria-label="תפריט נגישות">
+    <div class="a11y-head">
+      <span class="a11y-head-title">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+        תפריט נגישות
+      </span>
+      <button type="button" class="a11y-close" data-a11y="close" aria-label="סגירת תפריט הנגישות">✕</button>
+    </div>
+
+    <div class="a11y-body">
+      <div class="a11y-font-row">
+        <span class="a11y-font-label">גודל טקסט</span>
+        <div class="a11y-font-ctrls">
+          <button type="button" class="a11y-step" data-a11y="font-dec" aria-label="הקטנת גודל הטקסט">A−</button>
+          <span class="a11y-font-val" id="a11y-font-val" aria-live="polite">100%</span>
+          <button type="button" class="a11y-step" data-a11y="font-inc" aria-label="הגדלת גודל הטקסט">A+</button>
+        </div>
+      </div>
+
+      <div class="a11y-grid">
+        <button type="button" class="a11y-btn" data-a11y="hc-dark" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          <span>ניגודיות כהה</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="hc-light" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <span>ניגודיות בהירה</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="mono" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none" opacity=".45"/></svg>
+          <span>גווני אפור</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="invert" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor" stroke="none"/></svg>
+          <span>ניגודיות הפוכה</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="links" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+          <span>הדגשת קישורים</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="readable" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 12 5l7 14"/><path d="M8.2 14h7.6"/></svg>
+          <span>פונט קריא</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="noanim" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <span>עצירת אנימציות</span>
+        </button>
+        <button type="button" class="a11y-btn" data-a11y="cursor" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 3l6.5 16 2.3-6.2 6.2-2.3z"/></svg>
+          <span>סמן גדול</span>
+        </button>
+      </div>
+
+      <button type="button" class="a11y-reset" data-a11y="reset">איפוס הגדרות הנגישות</button>
+      <a class="a11y-statement" href="accessibility.html">להצהרת הנגישות המלאה ←</a>
+    </div>
+  </div>
+
+  <script>
+  /* ── Accessibility widget — self-contained, works on every domain ── */
+  (function () {
+    'use strict';
+    var KEY = 'shimshon-a11y-v1';
+    var root = document.documentElement;
+    var fab = document.getElementById('a11y-fab');
+    var panel = document.getElementById('a11y-panel');
+    if (!fab || !panel) return;
+
+    var DEFAULTS = { font: 0, hc: '', mono: false, invert: false, links: false, readable: false, noanim: false, cursor: false };
+    var state;
+    try { state = Object.assign({}, DEFAULTS, JSON.parse(localStorage.getItem(KEY) || '{}')); }
+    catch (e) { state = Object.assign({}, DEFAULTS); }
+
+    function persist() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+    function apply() {
+      var lvl = Math.max(-2, Math.min(6, state.font | 0));
+      state.font = lvl;
+      root.style.fontSize = lvl === 0 ? '' : (100 + lvl * 10) + '%';
+
+      var f = [];
+      if (state.mono) f.push('grayscale(100%)');
+      if (state.invert) f.push('invert(100%)');
+      root.style.filter = f.join(' ');
+      root.style.webkitFilter = f.join(' ');
+
+      root.classList.toggle('a11y-hc-dark', state.hc === 'dark');
+      root.classList.toggle('a11y-hc-light', state.hc === 'light');
+      root.classList.toggle('a11y-links', !!state.links);
+      root.classList.toggle('a11y-readable', !!state.readable);
+      root.classList.toggle('a11y-noanim', !!state.noanim);
+      root.classList.toggle('a11y-cursor', !!state.cursor);
+
+      var val = document.getElementById('a11y-font-val');
+      if (val) val.textContent = (100 + lvl * 10) + '%';
+
+      setPressed('hc-dark', state.hc === 'dark');
+      setPressed('hc-light', state.hc === 'light');
+      setPressed('mono', state.mono);
+      setPressed('invert', state.invert);
+      setPressed('links', state.links);
+      setPressed('readable', state.readable);
+      setPressed('noanim', state.noanim);
+      setPressed('cursor', state.cursor);
+    }
+
+    function setPressed(name, on) {
+      var b = panel.querySelector('[data-a11y="' + name + '"]');
+      if (b) b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+
+    function handle(action) {
+      switch (action) {
+        case 'font-inc': state.font = Math.min(6, (state.font | 0) + 1); break;
+        case 'font-dec': state.font = Math.max(-2, (state.font | 0) - 1); break;
+        case 'hc-dark': state.hc = state.hc === 'dark' ? '' : 'dark'; break;
+        case 'hc-light': state.hc = state.hc === 'light' ? '' : 'light'; break;
+        case 'mono': state.mono = !state.mono; break;
+        case 'invert': state.invert = !state.invert; break;
+        case 'links': state.links = !state.links; break;
+        case 'readable': state.readable = !state.readable; break;
+        case 'noanim': state.noanim = !state.noanim; break;
+        case 'cursor': state.cursor = !state.cursor; break;
+        case 'reset': state = Object.assign({}, DEFAULTS); break;
+        case 'close': closePanel(); return;
+        default: return;
+      }
+      apply();
+      persist();
+    }
+
+    panel.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-a11y]');
+      if (btn) handle(btn.getAttribute('data-a11y'));
+    });
+
+    /* ── viewport size + effective zoom, in the same coordinate space as
+          getBoundingClientRect / pointer events (the desktop layout uses CSS
+          `zoom`, so style px and rect px differ by this factor) ── */
+    function metrics() {
+      var probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;visibility:hidden;pointer-events:none;margin:0;padding:0;border:0;';
+      document.body.appendChild(probe);
+      var r = probe.getBoundingClientRect();
+      document.body.removeChild(probe);
+
+      var s = document.createElement('div');
+      s.style.cssText = 'position:fixed;top:0;left:0;width:1000px;height:0;visibility:hidden;pointer-events:none;margin:0;padding:0;border:0;';
+      document.body.appendChild(s);
+      var z = s.getBoundingClientRect().width / 1000;
+      document.body.removeChild(s);
+
+      return { w: r.width, h: r.height, z: (z > 0 ? z : 1) };
+    }
+    function viewport() { return metrics(); }
+
+    var MARGIN = 8;
+
+    /* ── position the panel next to the (possibly moved) button ──
+          all math is in rect space; final left/top are converted to style
+          space (÷ zoom) because CSS `left/top` are pre-zoom lengths ── */
+    function positionPanel() {
+      panel.style.transform = 'none';
+      panel.style.insetInlineStart = 'auto';
+      panel.style.right = 'auto';
+      panel.style.bottom = 'auto';
+      var m = metrics();
+      var fr = fab.getBoundingClientRect();
+      var pr = panel.getBoundingClientRect();
+      var gap = 12;
+
+      var left;
+      if (fr.left + fr.width / 2 > m.w / 2) left = fr.right - pr.width;  /* button on right half */
+      else left = fr.left;                                              /* button on left half  */
+      left = Math.max(MARGIN, Math.min(left, m.w - pr.width - MARGIN));
+
+      var top;
+      if (fr.top - gap - pr.height >= MARGIN) top = fr.top - gap - pr.height;     /* above  */
+      else if (fr.bottom + gap + pr.height <= m.h - MARGIN) top = fr.bottom + gap; /* below  */
+      else top = Math.max(MARGIN, Math.min(fr.top, m.h - pr.height - MARGIN));     /* clamp  */
+
+      panel.style.left = (left / m.z) + 'px';
+      panel.style.top = (top / m.z) + 'px';
+    }
+
+    /* ── open / close with focus management ── */
+    var lastFocused = null;
+    function focusables() {
+      return Array.prototype.slice.call(
+        panel.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')
+      ).filter(function (el) { return el.offsetParent !== null || el === document.activeElement; });
+    }
+    function openPanel() {
+      lastFocused = document.activeElement;
+      panel.classList.add('is-open');
+      positionPanel();
+      fab.setAttribute('aria-expanded', 'true');
+      var f = focusables();
+      if (f.length) f[0].focus();
+      document.addEventListener('keydown', onKeydown, true);
+      document.addEventListener('mousedown', onOutside, true);
+    }
+    function closePanel() {
+      if (!panel.classList.contains('is-open')) return;
+      panel.classList.remove('is-open');
+      fab.setAttribute('aria-expanded', 'false');
+      document.removeEventListener('keydown', onKeydown, true);
+      document.removeEventListener('mousedown', onOutside, true);
+      if (lastFocused && lastFocused.focus) lastFocused.focus(); else fab.focus();
+    }
+    function onKeydown(e) {
+      if (e.key === 'Escape') { e.preventDefault(); closePanel(); return; }
+      if (e.key === 'Tab') {
+        var f = focusables();
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    }
+    function onOutside(e) {
+      if (!panel.contains(e.target) && e.target !== fab && !fab.contains(e.target)) closePanel();
+    }
+
+    /* ── draggable button (mouse + touch), with persisted position ── */
+    var POS_KEY = 'shimshon-a11y-pos-v1';
+    var dragging = false, moved = false, grabX = 0, grabY = 0, startX = 0, startY = 0, dragVp = null;
+
+    function setFabXY(left, top, m) {
+      var fr = fab.getBoundingClientRect();
+      left = Math.max(MARGIN, Math.min(left, m.w - fr.width - MARGIN));
+      top = Math.max(MARGIN, Math.min(top, m.h - fr.height - MARGIN));
+      fab.style.insetInlineStart = 'auto';
+      fab.style.right = 'auto';
+      fab.style.bottom = 'auto';
+      fab.style.left = (left / m.z) + 'px';
+      fab.style.top = (top / m.z) + 'px';
+    }
+    function savePos() {
+      var fr = fab.getBoundingClientRect();
+      try { localStorage.setItem(POS_KEY, JSON.stringify({ left: fr.left, top: fr.top })); } catch (e) {}
+    }
+    function loadPos() {
+      var p;
+      try { p = JSON.parse(localStorage.getItem(POS_KEY) || 'null'); } catch (e) { p = null; }
+      if (p && typeof p.left === 'number' && typeof p.top === 'number') setFabXY(p.left, p.top, viewport());
+    }
+
+    fab.addEventListener('pointerdown', function (e) {
+      if (e.button != null && e.button > 0) return;
+      dragging = true; moved = false;
+      dragVp = viewport();
+      var fr = fab.getBoundingClientRect();
+      grabX = e.clientX - fr.left;
+      grabY = e.clientY - fr.top;
+      startX = e.clientX; startY = e.clientY;
+      try { fab.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    fab.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      if (!moved && Math.abs(e.clientX - startX) + Math.abs(e.clientY - startY) > 6) {
+        moved = true;
+        fab.classList.add('is-dragging');
+        if (panel.classList.contains('is-open')) closePanel();
+      }
+      if (moved) {
+        setFabXY(e.clientX - grabX, e.clientY - grabY, dragVp);
+        e.preventDefault();
+      }
+    });
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      fab.classList.remove('is-dragging');
+      try { fab.releasePointerCapture(e.pointerId); } catch (_) {}
+      if (moved) savePos();
+    }
+    fab.addEventListener('pointerup', endDrag);
+    fab.addEventListener('pointercancel', endDrag);
+
+    fab.addEventListener('click', function (e) {
+      if (moved) { moved = false; e.preventDefault(); e.stopPropagation(); return; }
+      if (panel.classList.contains('is-open')) closePanel(); else openPanel();
+    });
+
+    /* keep button + open panel on-screen when the viewport changes */
+    var rz;
+    window.addEventListener('resize', function () {
+      clearTimeout(rz);
+      rz = setTimeout(function () {
+        if (fab.style.left) { var fr = fab.getBoundingClientRect(); setFabXY(fr.left, fr.top, viewport()); }
+        if (panel.classList.contains('is-open')) positionPanel();
+      }, 120);
+    });
+
+    apply();
+    loadPos();
+  })();
+  </script>
 
   <!-- floating WhatsApp -->
   <a href="https://wa.me/972529201835?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" aria-label="צרו קשר בוואטסאפ" class="focus-ring fixed bottom-5 left-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-accent text-white shadow-xl shadow-accent/30 transition-transform hover:scale-110">
