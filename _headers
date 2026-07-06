@@ -1,0 +1,15 @@
+# Netlify security headers for crossfit-shimshon.
+# This file must sit at the PUBLISH ROOT (the folder Netlify deploys). If your
+# publish directory is this folder, it is already correct.
+#
+# The CSP ships as Report-Only so it can NEVER break the live site. After you
+# confirm the deploy preview shows no CSP violations in the browser console,
+# promote it by renaming the header to `Content-Security-Policy`.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=()
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; frame-src https://*.arboxapp.com https://www.google.com; connect-src 'self'

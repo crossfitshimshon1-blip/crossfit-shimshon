@@ -1,0 +1,21 @@
+# crossfit-shimshon — keep local working files & backups OUT of the deploy.
+# These exist on disk for local editing/re-injection but must never be served
+# publicly (info-disclosure). Deploy = index.html, team.html, terms.html,
+# accessibility.html, LOGO.png, PHOTO/, plus _headers / netlify config.
+
+# Editor backups & working copies
+*.orig.html
+*.FIX.html
+*.mhtml
+
+# Page-edit-mode local config (needed locally to re-inject the ✏️ editor)
+*.editor-config.json
+
+# Scratch / notes
+backup.txt.txt
+to.txt.txt
+*.txt.txt
+תיקונים לאתר.txt
+
+# Internal design mockups (not for the public site)
+stitch-screens/

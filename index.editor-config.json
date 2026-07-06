@@ -1,5 +1,0 @@
-{
-  "sections": "body > section, body > header, body > footer, main > section, main > header, main > div",
-  "deny": ".bg, .background, .decoration, [data-bg], #scroll-progress, .cursor-glow, #cursor-glow, .modal, .modal *, .overlay, .overlay *, .sticky-cta, .float-cta, .floating-cta, .mobile-cta-bar, .chat-widget, #toTop, a[href*=\"wa.me\"], .a11y-ui, #a11y-fab, #a11y-panel, #a11y-panel *",
-  "lock": ".typewriter, .tw-cursor, .countdown, .countdown *, [data-count]"
-}

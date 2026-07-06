@@ -18,33 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#F97316',
-            'primary-light': '#FB923C',
-            'primary-dark': '#EA580C',
-            accent: '#22C55E',
-            ink: '#0B0F14',
-            'surface': '#121922',
-            'surface-2': '#1A2230',
-            'surface-3': '#222C3A',
-            line: '#283341',
-            'muted-fg': '#9AA8B8',
-          },
-          fontFamily: {
-            display: ['"Barlow Condensed"', '"Heebo"', 'sans-serif'],
-            body: ['"Assistant"', '"Barlow"', 'sans-serif'],
-          },
-          maxWidth: { content: '1200px' },
-        },
-      },
-    };
-  </script>
+  <!-- Tailwind: compiled to assets/tailwind.css (linked before </head>) — no third-party runtime script -->
 
   <style>
     :root {
@@ -150,6 +124,7 @@
       [data-reveal] { opacity: 1 !important; transform: none !important; }
     }
   </style>
+  <link rel="stylesheet" href="assets/tailwind.css">
 </head>
 
 <body class="bg-ink font-body text-slate-200 antialiased selection:bg-primary">
