@@ -91,6 +91,14 @@
 
     /* ── Cards ───────────────────────────────────────────── */
     .card { transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s ease, box-shadow .3s ease, background-color .3s ease; }
+
+    /* Coach avatar awaiting a real photo: dashed ring reads as an intentional
+       placeholder frame rather than a broken image. Swap in an <img> to retire it. */
+    .photo-pending { box-shadow: inset 0 0 0 2px rgba(249,115,22,.45); }
+    .photo-pending::after {
+      content: ""; position: absolute; inset: 3px; border-radius: .7rem;
+      border: 1px dashed rgba(249,115,22,.5); pointer-events: none;
+    }
     .card-hover:hover { transform: translateY(-6px); border-color: rgba(249,115,22,.55); box-shadow: 0 24px 50px -24px rgba(0,0,0,.8), 0 0 0 1px rgba(249,115,22,.25); }
 
     .ring-gradient { position: relative; }
@@ -169,6 +177,13 @@
       </ul>
 
       <div class="flex items-center gap-2">
+        <!-- social — same destinations as the footer links -->
+        <a aria-label="עמוד האינסטגרם שלנו" class="focus-ring hidden h-9 w-9 items-center justify-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary sm:inline-flex" href="https://www.instagram.com/crossfitshimshon/" rel="noopener" target="_blank">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect height="20" rx="5" width="20" x="2" y="2"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+        </a>
+        <a aria-label="עמוד הפייסבוק שלנו" class="focus-ring hidden h-9 w-9 items-center justify-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary sm:inline-flex" href="https://www.facebook.com/crossfitshimshon/" rel="noopener" target="_blank">
+          <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
         <a href="index.html#pricing" class="btn btn-primary btn-shine focus-ring hidden rounded-xl bg-primary px-5 py-2.5 text-sm font-extrabold text-ink sm:inline-flex">
           ניסיון ראשון
         </a>
@@ -192,6 +207,14 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#contact">צור קשר</a></li>
       </ul>
       <a href="index.html#pricing" class="mobilelink btn btn-primary mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-extrabold text-ink">ניסיון ראשון</a>
+          <div class="mt-2 flex items-center justify-center gap-2">
+        <a aria-label="עמוד האינסטגרם שלנו" class="focus-ring grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary" href="https://www.instagram.com/crossfitshimshon/" rel="noopener" target="_blank">
+          <svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect height="20" rx="5" width="20" x="2" y="2"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg>
+        </a>
+        <a aria-label="עמוד הפייסבוק שלנו" class="focus-ring grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-slate-300 transition-colors hover:border-primary/60 hover:text-primary" href="https://www.facebook.com/crossfitshimshon/" rel="noopener" target="_blank">
+          <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -289,18 +312,6 @@
             <p class="mt-5 text-sm leading-relaxed text-muted-fg">בוגרת מכון וינגייט ובעלת תעודות הסמכה בחדר כושר, הרמת משקולות אולימפית ושחייה. מאמנת מעל 10 שנים, מתאמנת בקרוספיט משנת 2012 ובוגרת 3 תחרויות RFA. אמא ל-3 המשלבת מקצוענות קפדנית עם אהבה ענקית לתחום.</p>
           </article>
 
-          <!-- Moran Rosh -->
-          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">מר<img src="PHOTO/moran.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
-              <div>
-                <h2 class="font-display text-xl font-bold leading-tight text-white">מורן ראש</h2>
-                <span class="mt-0.5 block text-sm font-bold text-primary">מאמנת</span>
-              </div>
-            </div>
-            <p class="mt-5 text-sm leading-relaxed text-muted-fg">בעלת תואר בחינוך מיוחד ותעודת מאמנת מקמפוס שיאים תל אביב. מתאמנת כ-6 שנים בקרוספיט, חיה ונושמת את האינטנסיביות, אתגרי הקצה והדחיפה העצמית קדימה.</p>
-          </article>
-
           <!-- Inbal Ben-Zeev -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
             <div class="flex items-center gap-4">
@@ -323,6 +334,30 @@
               </div>
             </div>
             <p class="mt-5 text-sm leading-relaxed text-muted-fg">מאמנת כושר מוסמכת מקמפוס שיאים תל אביב. מתאמנת בקרוספיט קרוב ל-9 שנים ומאמנת מעל שנתיים בשמשון. אוהבת את הגיוון, האדרנלין והאתגר שבאימונים – אף פעם לא משעמם, ותמיד יש לאן להתקדם.</p>
+          </article>
+
+          <!-- Steven Wallach — photo pending, initials placeholder -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="photo-pending relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">סו</span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">סטיבן וולך</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמן</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">מאמין שהאימון הטוב ביותר הוא זה שחוזרים אליו. מפרק כל תנועה לגורמים ובונה אותה מחדש נכון, עם דגש על טכניקה נקייה, סבלנות והתקדמות מדודה. באימון שלו אף אחד לא נשאר מאחור.</p>
+          </article>
+
+          <!-- Avi Klatzel — photo pending, initials placeholder -->
+          <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
+            <div class="flex items-center gap-4">
+              <span class="photo-pending relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אק</span>
+              <div>
+                <h2 class="font-display text-xl font-bold leading-tight text-white">אבי קלצל</h2>
+                <span class="mt-0.5 block text-sm font-bold text-primary">מאמן</span>
+              </div>
+            </div>
+            <p class="mt-5 text-sm leading-relaxed text-muted-fg">אנרגיה גבוהה ואוזן קשבת באותה מידה. מביא לכל אימון קצב, הומור ודחיפה במינון הנכון, ויודע להתאים את התרגיל למי שעומד מולו. מאמין שכוח אמיתי נבנה מהתמדה, לא מיום אחד חזק.</p>
           </article>
           </div>
 
