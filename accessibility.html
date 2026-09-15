@@ -126,7 +126,9 @@
 
     /* ── contact cards: the email sizes off its own card, so it can never overflow ── */
     .contact-card { container-type: inline-size; }
-    .contact-email { white-space: nowrap; font-size: clamp(0.625rem, 4.1cqw, 0.875rem); }
+    /* 5cqw lands on ~15px in the narrow 2-col card and caps there; the cap is set by
+       Arial (the fallback face, ~14% wider than Assistant) still fitting the card. */
+    .contact-email { white-space: nowrap; font-size: clamp(0.6875rem, 5cqw, 0.9375rem); }
   </style>
   <link rel="stylesheet" href="assets/tailwind.css">
 </head>
