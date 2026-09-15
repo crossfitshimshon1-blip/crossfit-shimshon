@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0B0F14" />
   <title>צוות המאמנים | CrossFit Shimshon — קרוספיט שמשון</title>
@@ -144,6 +144,10 @@
     @keyframes coachIn { from { opacity: 0; transform: translateY(16px) scale(.97); } to { opacity: 1; transform: none; } }
     .team-clickable { cursor: pointer; }
     @media (prefers-reduced-motion: reduce) { .coach-modal-backdrop, .coach-modal-dialog { animation: none; } }
+
+    /* ── contact cards: the email sizes off its own card, so it can never overflow ── */
+    .contact-card { container-type: inline-size; }
+    .contact-email { white-space: nowrap; font-size: clamp(0.625rem, 4.1cqw, 0.875rem); }
   </style>
   <link rel="stylesheet" href="assets/tailwind.css">
 </head>
@@ -170,6 +174,7 @@
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-bold text-white" href="team.html" aria-current="page">הצוות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -201,6 +206,7 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-bold text-primary" href="team.html" aria-current="page">הצוות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -237,21 +243,13 @@
         </nav>
 
         <div class="max-w-3xl" data-reveal>
-          <span class="eyebrow inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase text-primary-light">OUR TEAM</span>
           <h1 class="mt-5 font-display text-5xl font-extrabold uppercase leading-[.95] text-white sm:text-7xl">
             <span class="block text-glow">צוות</span>
             <span class="block gradient-text">המאמנים</span>
           </h1>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">
-            האנשים שמאחורי כל אימון — צוות מקצועי, מנוסה ומגוון שחי ונושם את הענף, ומלווה אתכם בהתאמה אישית, בבטיחות מלאה ובלב ענק.
-          </p>
 
           <!-- credential pills -->
           <ul class="mt-7 flex flex-wrap gap-2 text-xs font-bold text-slate-300">
-            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">7 מאמנים מוסמכים</li>
-            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">מכון וינגייט</li>
-            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">קמפוס שיאים</li>
-            <li class="rounded-full border border-line bg-surface/70 px-3.5 py-1.5 backdrop-blur">הרמת משקולות אולימפית</li>
           </ul>
         </div>
       </div>
@@ -277,7 +275,7 @@
             </article>
             <!-- Simona Herzberg -->
             <article class="card relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-lg shadow-primary/10 sm:flex-row sm:items-center" data-reveal>
-              <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">בעלים</span>
+              <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">מייסדת ובעלים</span>
               <span class="relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">סה<img src="PHOTO/simona.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-3xl font-bold leading-tight text-white">סימונה הרצברג</h2>
@@ -373,7 +371,7 @@
         <h2 class="mx-auto max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight text-white sm:text-5xl">
           רוצים להתאמן עם <span class="gradient-text">הצוות שלנו</span>?
         </h2>
-        <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">האימון הראשון עלינו. בואו להכיר את המאמנים ואת הקהילה מקרוב.</p>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">בואו להכיר את המאמנים ואת הקהילה מקרוב</p>
         <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href="index.html#pricing" class="btn btn-primary btn-shine focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-extrabold text-ink">
             קבעו אימון ניסיון
@@ -431,13 +429,13 @@
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">טלפון</span><span class="block font-bold text-white">052-9201835</span></span>
               </a>
-              <a href="mailto:hello@shimshon-cf.co.il" class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+              <a href="mailto:crossfitshimshon@gmail.com" class="card card-hover contact-card flex items-start gap-3 rounded-2xl border border-line bg-surface p-4">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="block font-bold text-white">hello@shimshon-cf.co.il</span></span>
+                <span class="min-w-0"><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="contact-email block font-bold text-white">crossfitshimshon@gmail.com</span></span>
               </a>
               <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white">צור יצחק</span></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white whitespace-nowrap">נחל אלכסנדר 19</span><span class="block font-bold text-white whitespace-nowrap">צור יצחק</span></span>
               </div>
               <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
@@ -644,7 +642,12 @@
         bottom: 140px;
       }
     }
-  </style>
+
+
+    /* ── utility the compiled tailwind build doesn't emit ── */
+    .whitespace-nowrap { white-space: nowrap; }
+
+</style>
 
   <!-- Accessibility floating button -->
   <button id="a11y-fab" class="a11y-ui" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות" title="תפריט נגישות — לחצו לפתיחה · ניתן לגרור להזזה">

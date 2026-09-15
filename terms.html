@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0B0F14" />
   <title>תקנון המועדון | CrossFit Shimshon — קרוספיט שמשון</title>
@@ -128,6 +128,10 @@
       *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
       [data-reveal] { opacity: 1 !important; transform: none !important; }
     }
+
+    /* ── contact cards: the email sizes off its own card, so it can never overflow ── */
+    .contact-card { container-type: inline-size; }
+    .contact-email { white-space: nowrap; font-size: clamp(0.625rem, 4.1cqw, 0.875rem); }
   </style>
   <link rel="stylesheet" href="assets/tailwind.css">
 </head>
@@ -156,6 +160,7 @@
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -186,6 +191,7 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -501,13 +507,13 @@
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">טלפון</span><span class="block font-bold text-white">052-9201835</span></span>
               </a>
-              <a href="mailto:hello@shimshon-cf.co.il" class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+              <a href="mailto:crossfitshimshon@gmail.com" class="card contact-card flex items-start gap-3 rounded-2xl border border-line bg-surface p-4">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="block font-bold text-white">hello@shimshon-cf.co.il</span></span>
+                <span class="min-w-0"><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="contact-email block font-bold text-white">crossfitshimshon@gmail.com</span></span>
               </a>
               <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white">צור יצחק</span></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white whitespace-nowrap">נחל אלכסנדר 19</span><span class="block font-bold text-white whitespace-nowrap">צור יצחק</span></span>
               </div>
               <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
@@ -714,7 +720,8 @@
         bottom: 140px;
       }
     }
-  </style>
+
+</style>
 
   <!-- Accessibility floating button -->
   <button id="a11y-fab" class="a11y-ui" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות" title="תפריט נגישות — לחצו לפתיחה · ניתן לגרור להזזה">

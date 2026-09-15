@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0B0F14" />
   <title>הצהרת נגישות | CrossFit Shimshon — קרוספיט שמשון</title>
@@ -123,6 +123,10 @@
       *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
       [data-reveal] { opacity: 1 !important; transform: none !important; }
     }
+
+    /* ── contact cards: the email sizes off its own card, so it can never overflow ── */
+    .contact-card { container-type: inline-size; }
+    .contact-email { white-space: nowrap; font-size: clamp(0.625rem, 4.1cqw, 0.875rem); }
   </style>
   <link rel="stylesheet" href="assets/tailwind.css">
 </head>
@@ -149,6 +153,7 @@
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -178,6 +183,7 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#about">אודות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#programs">תוכניות אימון</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#pricing">מנויים</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="index.html#faq">שאלות נפוצות</a></li>
@@ -280,9 +286,9 @@
                 <span class="text-xs font-semibold text-muted-fg">טלפון</span>
                 <span class="mt-1 font-bold text-white">052-9201835</span>
               </a>
-              <a href="mailto:hello@shimshon-cf.co.il" class="card flex flex-col rounded-2xl border border-line bg-surface p-5 hover:text-white">
+              <a href="mailto:crossfitshimshon@gmail.com" class="card contact-card flex flex-col rounded-2xl border border-line bg-surface p-5 hover:text-white">
                 <span class="text-xs font-semibold text-muted-fg">דוא״ל</span>
-                <span class="mt-1 font-bold text-white">hello@shimshon-cf.co.il</span>
+                <span class="contact-email mt-1 font-bold text-white">crossfitshimshon@gmail.com</span>
               </a>
               <a href="https://wa.me/972529201835" rel="noopener" target="_blank" class="card flex flex-col rounded-2xl border border-line bg-surface p-5 hover:text-white">
                 <span class="text-xs font-semibold text-muted-fg">וואטסאפ</span>
@@ -502,7 +508,8 @@
         bottom: 140px;
       }
     }
-  </style>
+
+</style>
 
   <!-- Accessibility floating button -->
   <button id="a11y-fab" class="a11y-ui" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות" title="תפריט נגישות — לחצו לפתיחה · ניתן לגרור להזזה">

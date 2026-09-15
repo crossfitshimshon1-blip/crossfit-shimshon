@@ -224,27 +224,6 @@
     @media (prefers-reduced-motion: reduce) { .info-modal-dialog { animation: none; } }
     /* ════ MOBILE OPTIMIZATIONS (≤768px) — desktop layout untouched ════ */
     @media (max-width: 768px) {
-      /* Pricing → premium horizontal swipe carousel (middle card centered via JS) */
-      #pricing .pricing-panel:not(.hidden) {
-        display: flex;
-        direction: ltr;                 /* predictable scroll math; card text restored to rtl below */
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 1rem;
-        padding: 0.25rem 10% 1rem;      /* side padding lets edge cards center too */
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;          /* Firefox */
-      }
-      #pricing .pricing-panel:not(.hidden)::-webkit-scrollbar { display: none; } /* WebKit */
-      #pricing .pricing-panel:not(.hidden) > * {
-        direction: rtl;
-        flex: 0 0 80%;
-        max-width: 80%;
-        scroll-snap-align: center;
-        opacity: 1 !important;          /* ensure off-screen cards aren't stuck hidden by reveal */
-        transform: none !important;
-      }
-
       /* Training programs → pills scroll horizontally instead of wrapping */
       #programs .prog-pills {
         flex-wrap: nowrap;
@@ -268,6 +247,18 @@
       #programs .prog-panel-icon svg { width: 1.5rem; height: 1.5rem; }
       #programs .prog-panel-body { font-size: 0.9rem; }
     }
+
+    /* ── utilities the compiled tailwind build doesn't emit ── */
+    .p-6 { padding: 1.5rem; }
+    .-mx-6 { margin-left: -1.5rem; margin-right: -1.5rem; }
+    .-mt-6 { margin-top: -1.5rem; }
+    .whitespace-nowrap { white-space: nowrap; }
+    .aspect-square { aspect-ratio: 1 / 1; }
+
+    /* ── contact cards: the email sizes off its own card, so it can never overflow ── */
+    .contact-card { container-type: inline-size; }
+    .contact-email { white-space: nowrap; font-size: clamp(0.625rem, 4.1cqw, 0.875rem); }
+
 </style>
 <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.inset-x-0{left:0px;right:0px}.inset-x-3{left:0.75rem;right:0.75rem}.-top-3\.5{top:-0.875rem}.bottom-5{bottom:1.25rem}.bottom-6{bottom:1.5rem}.bottom-\[-140px\]{bottom:-140px}.left-1\/2{left:50%}.left-1\/3{left:33.333333%}.left-5{left:1.25rem}.left-6{left:1.5rem}.left-\[-120px\]{left:-120px}.left-\[-160px\]{left:-160px}.right-1\/2{right:50%}.right-1\/3{right:33.333333%}.right-1\/4{right:25%}.right-5{right:1.25rem}.right-\[-160px\]{right:-160px}.top-0{top:0px}.top-20{top:5rem}.top-24{top:6rem}.top-5{top:1.25rem}.top-\[-80px\]{top:-80px}.top-\[calc\(var\(--nav-h\)-6px\)\]{top:calc(var(--nav-h) - 6px)}.left-4{left:1rem}.top-4{top:1rem}.z-0{z-index:0}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.-mx-8{margin-left:-2rem;margin-right:-2rem}.mx-auto{margin-left:auto;margin-right:auto}.-mt-8{margin-top:-2rem}.mb-1\.5{margin-bottom:0.375rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-14{margin-top:3.5rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[3\/4\]{aspect-ratio:3/4}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-2{height:0.5rem}.h-20{height:5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[300px\]{height:300px}.h-\[320px\]{height:320px}.h-\[360px\]{height:360px}.h-\[380px\]{height:380px}.h-\[420px\]{height:420px}.h-\[var\(--nav-h\)\]{height:var(--nav-h)}.h-full{height:100%}.min-h-\[100svh\]{min-height:100svh}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-2{width:0.5rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[300px\]{width:300px}.w-\[320px\]{width:320px}.w-\[360px\]{width:360px}.w-\[380px\]{width:380px}.w-\[420px\]{width:420px}.w-auto{width:auto}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-content{max-width:1200px}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-1\/2{--tw-translate-x:50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-\[1\.02\]{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}.resize-y{resize:vertical}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-px{gap:1px}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.break-all{word-break:break-all}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-line{--tw-border-opacity:1;border-color:rgb(40 51 65 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.border-primary\/40{border-color:rgb(249 115 22 / 0.4)}.border-primary\/50{border-color:rgb(249 115 22 / 0.5)}.border-primary\/60{border-color:rgb(249 115 22 / 0.6)}.border-sky-500\/25{border-color:rgb(14 165 233 / 0.25)}.border-sky-500\/40{border-color:rgb(14 165 233 / 0.4)}.border-sky-500\/50{border-color:rgb(14 165 233 / 0.5)}.border-slate-500\/25{border-color:rgb(100 116 139 / 0.25)}.border-slate-500\/40{border-color:rgb(100 116 139 / 0.4)}.border-slate-500\/50{border-color:rgb(100 116 139 / 0.5)}.border-transparent{border-color:transparent}.border-primary\/30{border-color:rgb(249 115 22 / 0.3)}.bg-accent{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-accent\/15{background-color:rgb(34 197 94 / 0.15)}.bg-ink{--tw-bg-opacity:1;background-color:rgb(11 15 20 / var(--tw-bg-opacity, 1))}.bg-ink\/70{background-color:rgb(11 15 20 / 0.7)}.bg-line\/60{background-color:rgb(40 51 65 / 0.6)}.bg-orange-600\/70{background-color:rgb(234 88 12 / 0.7)}.bg-primary{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(249 115 22 / 0.1)}.bg-primary\/20{background-color:rgb(249 115 22 / 0.2)}.bg-primary\/30{background-color:rgb(249 115 22 / 0.3)}.bg-primary\/40{background-color:rgb(249 115 22 / 0.4)}.bg-primary\/5{background-color:rgb(249 115 22 / 0.05)}.bg-sky-500\/10{background-color:rgb(14 165 233 / 0.1)}.bg-slate-500\/10{background-color:rgb(100 116 139 / 0.1)}.bg-surface{--tw-bg-opacity:1;background-color:rgb(18 25 34 / var(--tw-bg-opacity, 1))}.bg-surface-2{--tw-bg-opacity:1;background-color:rgb(26 34 48 / var(--tw-bg-opacity, 1))}.bg-surface\/30{background-color:rgb(18 25 34 / 0.3)}.bg-surface\/60{background-color:rgb(18 25 34 / 0.6)}.bg-surface\/90{background-color:rgb(18 25 34 / 0.9)}.bg-surface\/95{background-color:rgb(18 25 34 / 0.95)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-primary\/15{background-color:rgb(249 115 22 / 0.15)}.bg-surface\/80{background-color:rgb(18 25 34 / 0.8)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-surface-2{--tw-gradient-from:#1A2230 var(--tw-gradient-from-position);--tw-gradient-to:rgb(26 34 48 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-surface{--tw-gradient-to:#121922 var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:center}.object-cover{object-fit:cover}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.p-4{padding:1rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-6{padding-bottom:1.5rem}.pt-5{padding-top:1.25rem}.pt-8{padding-top:2rem}.pt-\[var\(--nav-h\)\]{padding-top:var(--nav-h)}.pt-4{padding-top:1rem}.text-center{text-align:center}.text-right{text-align:right}.font-body{font-family:"Assistant", "Barlow", sans-serif}.font-display{font-family:"Barlow Condensed", "Heebo", sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[\.92\]{line-height:.92}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[\.2em\]{letter-spacing:.2em}.tracking-wide{letter-spacing:0.025em}.tracking-widest{letter-spacing:0.1em}.text-accent{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.text-ink{--tw-text-opacity:1;color:rgb(11 15 20 / var(--tw-text-opacity, 1))}.text-muted-fg{--tw-text-opacity:1;color:rgb(154 168 184 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.text-primary-light{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-primary\/40{color:rgb(249 115 22 / 0.4)}.text-sky-200\/70{color:rgb(186 230 253 / 0.7)}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/5{color:rgb(255 255 255 / 0.05)}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-60{opacity:0.6}.opacity-75{opacity:0.75}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-accent\/30{--tw-shadow-color:rgb(34 197 94 / 0.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-black\/40{--tw-shadow-color:rgb(0 0 0 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.shadow-primary\/10{--tw-shadow-color:rgb(249 115 22 / 0.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-primary\/30{--tw-shadow-color:rgb(249 115 22 / 0.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-primary\/40{--tw-shadow-color:rgb(249 115 22 / 0.4);--tw-shadow:var(--tw-shadow-colored)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-white\/5{--tw-ring-color:rgb(255 255 255 / 0.05)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-primary *::selection{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.selection\:bg-primary::selection{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.placeholder\:text-slate-500::placeholder{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-accent\/60:hover{border-color:rgb(34 197 94 / 0.6)}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.hover\:border-primary\/60:hover{border-color:rgb(249 115 22 / 0.6)}.hover\:border-sky-400:hover{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.hover\:border-slate-400:hover{--tw-border-opacity:1;border-color:rgb(148 163 184 / var(--tw-border-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-2:hover{--tw-bg-opacity:1;background-color:rgb(26 34 48 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(34 197 94 / var(--tw-text-opacity, 1))}.hover\:text-ink:hover{--tw-text-opacity:1;color:rgb(11 15 20 / var(--tw-text-opacity, 1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(249 115 22 / var(--tw-text-opacity, 1))}.hover\:text-primary-light:hover{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.hover\:text-sky-300:hover{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-primary\/60:hover{--tw-shadow-color:rgb(249 115 22 / 0.6);--tw-shadow:var(--tw-shadow-colored)}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus\:fixed:focus{position:fixed}.focus\:right-3:focus{right:0.75rem}.focus\:top-3:focus{top:0.75rem}.focus\:z-\[100\]:focus{z-index:100}.focus\:rounded-lg:focus{border-radius:0.5rem}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.focus\:bg-primary:focus{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.focus\:px-4:focus{padding-left:1rem;padding-right:1rem}.focus\:py-2:focus{padding-top:0.5rem;padding-bottom:0.5rem}.focus\:font-bold:focus{font-weight:700}.focus\:text-ink:focus{--tw-text-opacity:1;color:rgb(11 15 20 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:rotate-\[-8deg\]{--tw-rotate:-8deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(249 115 22 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-ink{--tw-text-opacity:1;color:rgb(11 15 20 / var(--tw-text-opacity, 1))}.group:hover .group-hover\:text-primary\/20{color:rgb(249 115 22 / 0.2)}@media (min-width: 640px){.sm\:inline-flex{display:inline-flex}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-28{padding-top:7rem;padding-bottom:7rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-7xl{font-size:4.5rem;line-height:1}}@media (min-width: 768px){.md\:block{display:block}.md\:hidden{display:none}.md\:text-8xl{font-size:6rem;line-height:1}}@media (min-width: 1024px){.lg\:-mt-4{margin-top:-1rem}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:grid-cols-\[0\.8fr_1\.2fr\]{grid-template-columns:0.8fr 1.2fr}.lg\:grid-cols-\[1\.1fr_1fr\]{grid-template-columns:1.1fr 1fr}}
 
@@ -297,6 +288,7 @@
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#about">אודות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#programs">תוכניות אימון</a></li>
+        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#schedule">מערכת שעות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#pricing">מנויים</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-slate-300 transition-colors hover:text-white" href="#contact">צור קשר</a></li>
@@ -328,6 +320,7 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#about">אודות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="team.html">הצוות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#programs">תוכניות אימון</a></li>
+        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="kids.html">ילדים ונוער</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#schedule">מערכת שעות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#pricing">מנויים</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-slate-200 hover:bg-surface-2 hover:text-white" href="#contact">צור קשר</a></li>
@@ -357,14 +350,11 @@
       <div class="relative z-10 mx-auto w-full max-w-content px-4 sm:px-6">
         <div class="max-w-3xl is-visible" data-reveal="">
 
-
           <h1 class="font-display text-6xl font-extrabold uppercase leading-[.92] text-white sm:text-7xl md:text-8xl">
             <span class="block text-glow">CrossFit</span>
             <span class="block gradient-text">Shimshon</span>
           </h1>
-          <p class="mt-3 font-display text-2xl font-bold tracking-wide text-slate-200 sm:text-3xl">לא מחכים למחר מתחילים היום</p>
-
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">בונים אנשים חזקים לחיים בריאים וטובים יותר</p>
+          <p class="mt-3 font-display text-2xl font-bold tracking-wide text-slate-200 sm:text-3xl">בואו להתאמן אחרת</p>
 
           <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a class="btn btn-primary btn-shine focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-7 py-4 text-base font-extrabold text-ink" href="#pricing">התחילו עכשיו - שיעור ניסיון&nbsp;<svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
@@ -389,19 +379,6 @@
     <!-- ════════════════════ MARQUEE STRIP ════════════════════ -->
     <div aria-hidden="true" class="border-y border-line bg-surface/60 py-4">
       <div class="marquee-mask overflow-hidden">
-        <div class="marquee">
-          <!-- duplicated for seamless loop -->
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Strength • <span class="text-primary">כוח</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Conditioning • <span class="text-primary">סיבולת</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Community • <span class="text-primary">קהילה</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Mobility • <span class="text-primary">גמישות</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Mindset • <span class="text-primary">ראש</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Strength • <span class="text-primary">כוח</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Conditioning • <span class="text-primary">סיבולת</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Community • <span class="text-primary">קהילה</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Mobility • <span class="text-primary">גמישות</span></span>
-          <span class="font-display text-lg font-bold uppercase tracking-widest text-slate-400">Mindset • <span class="text-primary">ראש</span></span>
-        </div>
       </div>
     </div>
 
@@ -422,9 +399,11 @@
           <div data-reveal="" class="is-visible">
 
             <h2 class="mt-3 font-display text-4xl font-extrabold uppercase leading-tight text-white sm:text-5xl">
-              קצת&nbsp;<span class="gradient-text" contenteditable="true" spellcheck="false">עלינו</span></h2>
-            <p class="mt-6 text-lg leading-relaxed text-slate-300">מועדון הקרוספיט היחיד והגדול בצור יצחק והסביבה עם חלל אימונים גדול ומאופזר קהילה חזקה מאמנים מנוסים ותוכנית אימונים שמביאה תוצאות - לכל רמת כושר</p>
-
+              קצת&nbsp;<span class="gradient-text">עלינו</span></h2>
+            <p class="mt-6 text-lg leading-relaxed text-slate-300">קרוספיט שמשון הוא מועדון ספורט וכושר משפחתי הממוקם בישוב צור יצחק.
+<div>המועדון, או בוקס- כפי שהוא נקרא בשפת הקרוספיט, מעניק לחבריו כלים שיאפשרו להם לנהל אורח חיים בריא וספורטיבי.
+</div><div>בקרוספיט שמשון אנחנו מאמינים שמקצוענות במסגרת משפחתית תומכת וחמה הם הבסיס לחיים בריאים ולקהילה בריאה ועל כן אנחנו משקיעים רבות הן בפיתוח הלב של המקום והאוירה המיוחדת בו, והן בצוות המדריכים המצוין, יחד עם ציוד מתקדם ברמה גבוהה.</div><div>
+</div></p>
 
             <ul class="mt-8 grid gap-4 sm:grid-cols-2">
               <li class="flex items-start gap-3">
@@ -458,9 +437,8 @@
     <section class="relative overflow-hidden border-t border-line py-24 sm:py-28" id="programs">
       <div class="glow-orb left-[-160px] top-24 h-[360px] w-[360px] bg-primary/30"></div>
       <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
-        <div class="mx-auto max-w-3xl text-center is-visible" data-reveal="">
-          <span class="eyebrow text-sm font-bold uppercase text-primary">TRAINING PROGRAMS</span>
-          <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-white sm:text-5xl">תוכניות האימון שלנו</h2>
+        <div class="mx-auto flex max-w-3xl flex-col items-center text-center is-visible" data-reveal="">
+          <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-white sm:text-5xl">סוגי האימון שלנו</h2>
           <p class="mt-6 text-lg leading-relaxed text-slate-300">
             בקרוספיט שמשון אנחנו מקפידים על גיוון באימונים, כך שכל אימון הוא שונה, ייחודי ומתאים למתאמנים בכל הרמות. בתחילת כל אימון, המאמנים המקצועיים שלנו מסבירים ומדגימים את התרגילים, ובמידת הצורך מתאימים אותם אישית ליכולות שלכם – כדי שכולם יוכלו לעבוד קשה, לשמור על בטיחות ולהגיע לתוצאות מקסימליות.
           </p>
@@ -490,31 +468,23 @@
             </label>
             <label class="prog-pill" for="prog-2">
               <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 9v6"></path><path d="M7 8v8"></path><path d="M17 8v8"></path><path d="M20 9v6"></path><path d="M7 12h10"></path></svg></span>
-              <span class="prog-pill-label">הרמת משקולות אולימפית</span>
+              <span class="prog-pill-label">Weightlifting</span>
             </label>
             <label class="prog-pill" for="prog-3">
               <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"></circle><path d="m9 20 3-6 3 6"></path><path d="m6 8 6 2 6-2"></path><path d="M12 10v4"></path></svg></span>
-              <span class="prog-pill-label">קליסטניקס</span>
+              <span class="prog-pill-label">Calistenics<br></span>
             </label>
             <label class="prog-pill" for="prog-4">
               <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"></path></svg></span>
-              <span class="prog-pill-label">סיבולת</span>
+              <span class="prog-pill-label">Endurance</span>
             </label>
             <label class="prog-pill" for="prog-5">
               <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18 22 4-4"></path><path d="m2 6 4-4"></path><path d="m3 10 7-7"></path><path d="m14 21 7-7"></path></svg></span>
-              <span class="prog-pill-label">אימון כוח</span>
+              <span class="prog-pill-label">Strength</span>
             </label>
             <label class="prog-pill" for="prog-6">
               <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M2 18v-2a4 4 0 0 1 4-4h6"></path><path d="m9 9 3 3-3 3"></path><circle cx="18" cy="6" r="3"></circle><path d="M18 9v12"></path><path d="M15 21h6"></path></svg></span>
-              <span class="prog-pill-label">אימון עצמאי</span>
-            </label>
-            <label class="prog-pill" for="prog-7">
-              <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
-              <span class="prog-pill-label">אימוני נוער</span>
-            </label>
-            <label class="prog-pill" for="prog-8">
-              <span class="prog-pill-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><path d="M9 9h.01"></path><path d="M15 9h.01"></path></svg></span>
-              <span class="prog-pill-label">קרוספיט ילדים</span>
+              <span class="prog-pill-label">Open Gym<br></span>
             </label>
           </div>
 
@@ -527,57 +497,52 @@
                   <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Workout of the Day</span>
                 </div>
               </div>
-              <p class="prog-panel-body">האימון היומי במתכונת קרוספיט, המשלב עבודה על כוח, סיבולת, טכניקה ותנועה פונקציונלית. בכל יום האימון שונה – דינמי, מאתגר ובנוי על עקרונות של גיוון והדרגתיות, בליווי ובקרה צמודה של מאמן.</p>
+              <p class="prog-panel-body">הוא האימון היומי במתכונת קרוספיט, המשלב עבודה על כוח, סיבולת, טכניקה ותנועה פונקציונלית. בכל יום האימון שונה-דינמי, מאתגר, ובנוי על עקרונות של גיוון והדרגתיות. האימון מותאם לרמות שונות ומלווה בהנחיית מאמן מקצועי.</p>
             </article>
             <article class="prog-panel" id="panel-2">
               <div class="prog-panel-head">
                 <span class="prog-panel-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M4 9v6"></path><path d="M7 8v8"></path><path d="M17 8v8"></path><path d="M20 9v6"></path><path d="M7 12h10"></path></svg></span>
                 <div>
-                  <h3 class="font-display text-3xl font-bold leading-tight text-white">הרמת משקולות אולימפית</h3>
-                  <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Weightlifting</span>
+                  <h3 class="font-display text-3xl font-bold leading-tight text-white">Weightlifting</h3>
                 </div>
               </div>
-              <p class="prog-panel-body">מתמקדים בטכניקה ובכוח של תנועות ההנפה והדחיפה (Snatch ו-Clean &amp; Jerk). האימון כולל עבודה על גמישות, יציבות, כוח מתפרץ ושליטה תנועתית. מתאים למתחילים ומתקדמים כאחד, עם דגש מוחלט על דיוק ובטיחות.</p>
+              <p class="prog-panel-body">מתמקדים בטכניקה ובכוח של תנועות ההרמה האולימפית- הסנאץ' (Snatch) והקלין אנד ג'רק (Clean&amp;Jerk). האימון כולל עבודה על גמישות, יציבות, שליטה תנועתית וכוח מתפרץ. מתאים למתחילים ומתקדמים כאחד. עם דגש על דיוק, תהליך אישי והתקדמות בטוחה!</p>
             </article>
             <article class="prog-panel" id="panel-3">
               <div class="prog-panel-head">
                 <span class="prog-panel-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"></circle><path d="m9 20 3-6 3 6"></path><path d="m6 8 6 2 6-2"></path><path d="M12 10v4"></path></svg></span>
                 <div>
-                  <h3 class="font-display text-3xl font-bold leading-tight text-white">קליסטניקס</h3>
-                  <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Calisthenics</span>
+                  <h3 class="font-display text-3xl font-bold leading-tight text-white">Calistenics</h3>
                 </div>
               </div>
-              <p class="prog-panel-body">אימון מבוסס משקל גוף בלבד, המגיע מעולם ההתעמלות (עמידות ידיים, מתח וטבעות). האימונים משפרים בצורה יוצאת דופן את כוח הליבה, הגמישות, היציבות והשליטה התנועתית בגוף.</p>
+              <p class="prog-panel-body">אימון בו עושים שימוש רק במשקל הגוף. אימונים אלו מגיעים מעולם ההתעמלות, למשל: עמידות ידיים, מתח וטבעות. הם משפרים מאוד את הכוח והגמישות.</p>
             </article>
             <article class="prog-panel" id="panel-4">
               <div class="prog-panel-head">
                 <span class="prog-panel-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"></path></svg></span>
                 <div>
-                  <h3 class="font-display text-3xl font-bold leading-tight text-white">סיבולת</h3>
-                  <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Endurance</span>
+                  <h3 class="font-display text-3xl font-bold leading-tight text-white">Endurance</h3>
                 </div>
               </div>
-              <p class="prog-panel-body">אימון הממוקד בפיתוח ושיפור סיבולת לב-ריאה ועמידות לאורך זמן. עבודה על מאמצים ממושכים בעצימות משתנה, שמאתגרת ומקדמת גם את המתאמנים המנוסים ביותר.</p>
+              <p class="prog-panel-body">אימון המתמקד בפיתוח ובשיפור סיבולת לב ריאה ועמידות לאורך זמן. באימון עובדים על תרגילים ממושכים בעצימות משתנה - מתאים לכל הרמות ומאתגר גם את המנוסים ביותר.</p>
             </article>
             <article class="prog-panel" id="panel-5">
               <div class="prog-panel-head">
                 <span class="prog-panel-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1"></path><path d="m3 3 1 1"></path><path d="m18 22 4-4"></path><path d="m2 6 4-4"></path><path d="m3 10 7-7"></path><path d="m14 21 7-7"></path></svg></span>
                 <div>
-                  <h3 class="font-display text-3xl font-bold leading-tight text-white">אימון כוח</h3>
-                  <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Strength</span>
+                  <h3 class="font-display text-3xl font-bold leading-tight text-white">Strength</h3>
                 </div>
               </div>
-              <p class="prog-panel-body">אימון ייעודי המרכז תרגילים לשיפור הכוח המוחלט, בניית מסת שריר רזה ויצירת גוף חזק, חסין ומוכן לכל אתגר פיזי.</p>
+              <p class="prog-panel-body">אימון המתמקד בתרגילים לשיפור כוח, בניה של מסת שריר ויצירת גוף חזק ומוכן לאתגרים. מתאים לכל הרמות.</p>
             </article>
             <article class="prog-panel" id="panel-6">
               <div class="prog-panel-head">
                 <span class="prog-panel-icon" aria-hidden="true"><svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M2 18v-2a4 4 0 0 1 4-4h6"></path><path d="m9 9 3 3-3 3"></path><circle cx="18" cy="6" r="3"></circle><path d="M18 9v12"></path><path d="M15 21h6"></path></svg></span>
                 <div>
-                  <h3 class="font-display text-3xl font-bold leading-tight text-white">אימון עצמאי</h3>
-                  <span class="mt-1 block text-sm font-bold uppercase tracking-wide text-primary">Open Gym</span>
+                  <h3 class="font-display text-3xl font-bold leading-tight text-white">Open Gym</h3>
                 </div>
               </div>
-              <p class="prog-panel-body">הזמן שלכם, הקצב שלכם. גישה חופשית למתחם ולכל הציוד והמכשור המקצועי של המועדון לטובת אימון עצמאי, השלמת תוכניות אישיות, חיזוקים או תרגול אלמנטים ספציפיים.</p>
+              <p class="prog-panel-body">מאפשר לכם להתאמן בזמן שלכם, בקצב שלכם ולפי התוכנית האישית שלכם. המתחם פתוח לשימוש חופשי עם כל הציוד והמכשור של המועדון - לאימון עצמאי, השלמות וחיזוקים.</p>
             </article>
             <article class="prog-panel" id="panel-7">
               <div class="prog-panel-head">
@@ -630,172 +595,158 @@
       <div class="glow-orb left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 bg-primary/30"></div>
       <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
         <div class="mx-auto max-w-2xl text-center is-visible" data-reveal="">
-          <span class="eyebrow text-sm font-bold uppercase text-primary">MEMBERSHIP</span>
           <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-white sm:text-5xl">בחרו את המנוי שלכם</h2>
-          <p class="mt-4 text-lg text-muted-fg">ללא התחייבות ארוכת טווח. אפשר לשדרג, להקפיא או לבטל בכל עת.</p>
 
-          <!-- pricing tabs -->
-          <div class="mt-8 inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-line bg-surface p-1.5" role="tablist" aria-label="סוגי מנויים">
-            <button id="tabYouth" type="button" role="tab" aria-selected="false" aria-controls="panelYouth" class="pricing-tab focus-ring rounded-full px-5 py-2 text-sm font-bold text-muted-fg transition-colors">נוער</button>
-            <button id="tabMonthly" type="button" role="tab" aria-selected="true" aria-controls="panelMonthly" class="pricing-tab focus-ring rounded-full px-5 py-2 text-sm font-bold transition-colors bg-primary text-ink">חודשי</button>
-            <button id="tabDropin" type="button" role="tab" aria-selected="false" aria-controls="panelDropin" class="pricing-tab focus-ring rounded-full px-5 py-2 text-sm font-bold text-muted-fg transition-colors">מזדמן</button>
-          </div>
         </div>
 
-        <div id="panelMonthly" role="tabpanel" aria-labelledby="tabMonthly" class="pricing-panel mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+        <!-- all 9 plans, one compact grid: monthly → youth → drop-in -->
+        <div id="pricingGrid" class="mt-10 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- ── MONTHLY ── -->
           <!-- BASIC -->
-          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-8 is-visible" data-reveal="">
-            <h3 class="font-display text-2xl font-bold text-white">BASIC</h3>
+          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
+            <h3 class="font-display text-xl font-bold text-white">BASIC</h3>
             <p class="mt-1 text-sm text-muted-fg">להתחלה גמישה ולשמירה על כושר</p>
-            <div class="mt-6 flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">370</span>
+            <div class="mt-4 flex items-end gap-1">
+              <span class="font-display text-4xl font-extrabold text-white">370</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>9 אימונים בחודש</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>גישה לכל שיעורי ה-WOD</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>הדרכת מאמן בכל אימון</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-line bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-primary/60 hover:text-primary" href="#contact">בחירת מנוי</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-line bg-surface-2 px-6 py-3 font-bold text-white hover:border-primary/60 hover:text-primary" href="#contact">בחירת מנוי</a>
           </div>
           <!-- PRO (popular) -->
-          <div class="card relative flex scale-[1.02] flex-col rounded-3xl border-2 border-primary bg-gradient-to-b from-surface-2 to-surface p-8 shadow-2xl shadow-primary/10 lg:-mt-4 is-visible" data-reveal="">
+          <div class="card relative flex scale-[1.02] flex-col rounded-3xl border-2 border-primary bg-gradient-to-b from-surface-2 to-surface p-6 shadow-2xl shadow-primary/10 lg:-mt-4 is-visible" data-reveal="">
             <span class="absolute -top-3.5 right-1/2 translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-extrabold uppercase tracking-wide text-ink shadow-lg shadow-primary/40">הכי פופולרי</span>
-            <h3 class="font-display text-2xl font-bold text-primary">PRO</h3>
+            <h3 class="font-display text-xl font-bold text-primary">PRO</h3>
             <p class="mt-1 text-sm text-muted-fg">לכל מי שרוצה להתמכר לתוצאות</p>
-            <div class="mt-6 flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-primary">410</span>
+            <div class="mt-4 flex items-end gap-1">
+              <span class="font-display text-4xl font-extrabold text-primary">410</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-100"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>13 אימונים בחודש</li>
               <li class="flex items-center gap-3 text-slate-100"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>כל סוגי השיעורים והשעות</li>
               <li class="flex items-center gap-3 text-slate-100"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מעקב התקדמות אישי</li>
             </ul>
-            <a class="btn btn-primary btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl bg-primary px-6 py-3.5 font-extrabold text-ink" href="#contact">התחילו ניסיון כבר מחר</a>
+            <a class="btn btn-primary btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl bg-primary px-6 py-3 font-extrabold text-ink" href="#contact">התחילו ניסיון כבר מחר</a>
           </div>
           <!-- ATHLETE -->
-          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-8 is-visible" data-reveal="">
-            <h3 class="font-display text-2xl font-bold text-white">ATHLETE</h3>
+          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
+            <h3 class="font-display text-xl font-bold text-white">ATHLETE</h3>
             <p class="mt-1 text-sm text-muted-fg">ליווי מלא ותוצאות מקסימליות</p>
-            <div class="mt-6 flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">490</span>
+            <div class="mt-4 flex items-end gap-1">
+              <span class="font-display text-4xl font-extrabold text-white">490</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>ללא הגבלת אימונים</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>עדיפות בהרשמה לסדנאות</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-accent" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מעקב התקדמות והתאמה אישית</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-line bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-primary/60 hover:text-primary" href="#contact">בחירת מנוי</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-line bg-surface-2 px-6 py-3 font-bold text-white hover:border-primary/60 hover:text-primary" href="#contact">בחירת מנוי</a>
           </div>
-        </div>
 
-        <!-- YOUTH plans (blue) -->
-        <div id="panelYouth" role="tabpanel" aria-labelledby="tabYouth" class="pricing-panel mt-14 hidden items-stretch gap-6 lg:grid-cols-3">
+          <!-- ── YOUTH (blue) ── -->
           <!-- קרוספיט ילדים -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-sky-500/25 bg-sky-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-sky-400">קרוספיט ילדים</h3>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט ילדים</h3>
               <p class="mt-1 text-sm text-sky-200/70">גילאים 6-11</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">310</span>
+              <span class="font-display text-4xl font-extrabold text-white">350</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מנוי שנתי, 12 חודשים</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מוגבל ל-2 אימונים בשבוע</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
           </div>
           <!-- קרוספיט נוער - מתקדם -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-sky-500/25 bg-sky-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-sky-400">קרוספיט נוער - מתקדם</h3>
-              <p class="mt-1 text-sm text-sky-200/70">גילאים 14-17</p>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט נוער - מתקדם</h3>
+              <p class="mt-1 text-sm text-sky-200/70">גילאים 12-16</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">380</span>
+              <span class="font-display text-4xl font-extrabold text-white">400</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מנוי שנתי 12 חודשים</li>
-              <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>4 אימונים בשבוע</li>
+              <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>3 אימונים בשבוע</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
           </div>
           <!-- קרוספיט נוער - בסיסי -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-sky-500/25 bg-sky-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-sky-400">קרוספיט נוער - בסיסי</h3>
-              <p class="mt-1 text-sm text-sky-200/70">גילאים 12-17</p>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט נוער - בסיסי</h3>
+              <p class="mt-1 text-sm text-sky-200/70">גילאים 12-16</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">330</span>
+              <span class="font-display text-4xl font-extrabold text-white">350</span>
               <span class="mb-1.5 text-muted-fg">₪ / חודש</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מנוי שנתי 12 חודשים</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-sky-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מוגבל ל-2 אימונים בשבוע</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
           </div>
-        </div>
 
-        <!-- CASUAL / DROP-IN plans (gray) -->
-        <div id="panelDropin" role="tabpanel" aria-labelledby="tabDropin" class="pricing-panel mt-14 hidden items-stretch gap-6 lg:grid-cols-3">
+          <!-- ── CASUAL / DROP-IN (gray) ── -->
           <!-- סדנת יסודות -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-slate-500/25 bg-slate-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-slate-200">סדנת יסודות</h3>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-slate-200">סדנת יסודות</h3>
               <p class="mt-1 text-sm text-slate-400">בסיס נכון לפני שמתחילים</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">180</span>
+              <span class="font-display text-4xl font-extrabold text-white">180</span>
               <span class="mb-1.5 text-muted-fg">₪</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>כוללת 2 שיעורים</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לפרטים והרשמה</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לפרטים והרשמה</a>
           </div>
           <!-- אימון ניסיון -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-slate-500/25 bg-slate-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-slate-200">אימון ניסיון</h3>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-slate-200">אימון ניסיון</h3>
               <p class="mt-1 text-sm text-slate-400">בואו להכיר את הבוקס</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">40</span>
+              <span class="font-display text-4xl font-extrabold text-white">50</span>
               <span class="mb-1.5 text-muted-fg">₪</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>חד פעמי</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לתיאום אימון</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לתיאום אימון</a>
           </div>
           <!-- DROP IN -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-8">
-            <div class="-mx-8 -mt-8 mb-6 border-b border-slate-500/25 bg-slate-500/10 px-8 py-5">
-              <h3 class="font-display text-2xl font-bold text-slate-200">DROP IN</h3>
+          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+            <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
+              <h3 class="font-display text-xl font-bold text-slate-200">DROP IN</h3>
               <p class="mt-1 text-sm text-slate-400">למתאמנים מנוסים</p>
             </div>
             <div class="flex items-end gap-1">
-              <span class="font-display text-5xl font-extrabold text-white">80</span>
+              <span class="font-display text-4xl font-extrabold text-white">80</span>
               <span class="mb-1.5 text-muted-fg">₪</span>
             </div>
-            <ul class="mt-7 space-y-3.5 text-sm">
+            <ul class="mt-5 space-y-3 text-sm">
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>כניסה חד פעמית</li>
               <li class="flex items-center gap-3 text-slate-200"><svg aria-hidden="true" class="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg>מיועד למתאמנים מנוסים מבחוץ</li>
             </ul>
-            <a class="btn btn-shine focus-ring mt-8 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3.5 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לפרטים והרשמה</a>
+            <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3 font-bold text-white hover:border-slate-400 hover:text-slate-200" href="#contact">לפרטים והרשמה</a>
           </div>
-        </div>
-
-        <div class="mt-6 flex items-center justify-center gap-4 md:hidden">
-          <button type="button" id="pricingPrev" class="focus-ring grid h-10 w-10 place-items-center rounded-full border border-line bg-surface text-white transition-colors hover:border-primary hover:text-primary" aria-label="המנוי הקודם"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg></button>
-          <button type="button" id="pricingNext" class="focus-ring grid h-10 w-10 place-items-center rounded-full border border-line bg-surface text-white transition-colors hover:border-primary hover:text-primary" aria-label="המנוי הבא"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg></button>
+        
         </div>
 
         <p class="mt-8 text-center text-sm text-muted-fg">כל המנויים&nbsp;ללא דמי הצטרפות. המחירים כוללים מע״מ.</p>
@@ -811,10 +762,9 @@
 
     <!-- ════════════════════ FAQ ════════════════════ -->
 
-
     <!-- ════════════════════ CTA BAND ════════════════════ -->
     <section class="noise relative overflow-hidden border-t border-line">
-      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image:linear-gradient(to left, rgba(11,15,20,.92), rgba(11,15,20,.7)), url('https://images.unsplash.com/photo-1534258936925-c58bed479fcf?q=80&amp;w=1920&amp;auto=format&amp;fit=crop');"></div>
+      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image:linear-gradient(to left, rgba(11,15,20,.94), rgba(11,15,20,.88)), url('cross/cross-01.jpeg?v=1');"></div>
       <div class="glow-orb right-1/4 top-0 h-[300px] w-[300px] bg-primary/40"></div>
       <div class="relative z-10 mx-auto max-w-content px-4 py-24 text-center sm:px-6 sm:py-28 is-visible" data-reveal="">
         <h2 class="mx-auto max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight text-white sm:text-6xl">
@@ -823,29 +773,38 @@
         <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">האימון הראשון עלינו. בואו לגלות למה מאות מתאמנים בחרו בקרוספיט שמשון.</p>
         <!-- photo gallery -->
         <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY1.jpg" alt="גלריית קרוספיט שמשון — תמונה 1" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-01.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 1" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY2.jpg" alt="גלריית קרוספיט שמשון — תמונה 2" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-02.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 2" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY3.jpg" alt="גלריית קרוספיט שמשון — תמונה 3" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-03.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 3" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY4.jpg" alt="גלריית קרוספיט שמשון — תמונה 4" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-04.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 4" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY5.jpg" alt="גלריית קרוספיט שמשון — תמונה 5" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-05.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 5" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY6.jpg" alt="גלריית קרוספיט שמשון — תמונה 6" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-06.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 6" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY7.jpg" alt="גלריית קרוספיט שמשון — תמונה 7" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-07.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 7" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
-          <div class="group aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
-            <img src="PHOTO/GALERY8.jpg" alt="גלריית קרוספיט שמשון — תמונה 8" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-08.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 8" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-09.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 9" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-10.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 10" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/30">
+            <img src="cross/cross-11.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 11" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
         </div>
         <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -863,7 +822,6 @@
         <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
           <!-- contact form -->
           <div data-reveal="" class="is-visible">
-            <span class="eyebrow text-sm font-bold uppercase text-primary">GET IN TOUCH</span>
             <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-white sm:text-5xl">בואו נתחיל</h2>
 
             <form class="mt-8 space-y-5" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate="">
@@ -898,19 +856,19 @@
           <!-- details + map -->
           <div data-reveal="" class="is-visible">
             <div class="grid gap-4 sm:grid-cols-2">
-              <a class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-5 hover:text-white" href="tel:+972529201835">
+              <a class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-4 hover:text-white" href="tel:+972529201835">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">טלפון</span><span class="block font-bold text-white">052-9201835</span></span>
               </a>
-              <a class="card card-hover flex items-start gap-3 rounded-2xl border border-line bg-surface p-5" href="mailto:crossfitshimshon@gmail.com">
+              <a class="card card-hover contact-card flex items-start gap-3 rounded-2xl border border-line bg-surface p-4" href="mailto:crossfitshimshon@gmail.com">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m22 7-10 5L2 7"></path></svg></span>
-                <span class="min-w-0"><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="block font-bold text-white break-all">crossfitshimshon@gmail.com</span></span>
+                <span class="min-w-0"><span class="block text-xs font-semibold text-muted-fg">דוא״ל</span><span class="contact-email block font-bold text-white">crossfitshimshon@gmail.com</span></span>
               </a>
-              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-4">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white">נחל אלכסנדר 19, צור יצחק</span></span>
+                <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-white whitespace-nowrap">נחל אלכסנדר 19</span><span class="block font-bold text-white whitespace-nowrap">צור יצחק</span></span>
               </div>
-              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-5">
+              <div class="card flex items-start gap-3 rounded-2xl border border-line bg-surface p-4">
                 <span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">שעות פעילות</span><span class="block font-bold text-white">א׳–ה׳ 06:00–22:00<br>ו׳ 08:00–13:00</span></span>
               </div>
@@ -1529,28 +1487,6 @@
       counters.forEach(animateCount);
     }
 
-    /* ── Pricing plan tabs (חודשי / נוער / מזדמן) ── */
-    var pricingTabs = document.querySelectorAll('.pricing-tab');
-    var pricingPanels = document.querySelectorAll('.pricing-panel');
-    function setPlan(tab) {
-      var id = tab.getAttribute('aria-controls');
-      pricingTabs.forEach(function (t) {
-        var active = t === tab;
-        t.setAttribute('aria-selected', String(active));
-        t.classList.toggle('bg-primary', active);
-        t.classList.toggle('text-ink', active);
-        t.classList.toggle('text-muted-fg', !active);
-      });
-      pricingPanels.forEach(function (p) {
-        var active = p.id === id;
-        p.classList.toggle('hidden', !active);
-        p.classList.toggle('grid', active);
-      });
-    }
-    pricingTabs.forEach(function (tab) {
-      tab.addEventListener('click', function () { setPlan(tab); });
-    });
-
     /* ── FAQ accordion ── */
     var faqTriggers = document.querySelectorAll('.faq-trigger');
     faqTriggers.forEach(function (btn) {
@@ -1575,7 +1511,7 @@
       var contact = document.getElementById('contact');
       var msg = document.getElementById('msg');
       var nav = document.getElementById('navbar');
-      var ctas = document.querySelectorAll('.pricing-panel a[href="#contact"]');
+      var ctas = document.querySelectorAll('#pricingGrid a[href="#contact"]');
       ctas.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
@@ -1698,56 +1634,6 @@
       });
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-      });
-    })();
-  </script>
-  <script>
-    /* ── Mobile pricing carousel: center middle card + subtle arrows (≤768px only) ── */
-    (function () {
-      var mq = window.matchMedia('(max-width: 768px)');
-      var panels = document.querySelectorAll('.pricing-panel');
-      if (!panels.length) return;
-      function activePanel() {
-        for (var i = 0; i < panels.length; i++) {
-          if (!panels[i].classList.contains('hidden')) return panels[i];
-        }
-        return null;
-      }
-      function centerMiddle(panel, smooth) {
-        if (!panel || !mq.matches) return;
-        var cards = panel.children;
-        if (!cards.length) return;
-        var idx = cards.length >= 3 ? 1 : Math.floor((cards.length - 1) / 2);
-        var mid = cards[idx];
-        requestAnimationFrame(function () {
-          var pr = panel.getBoundingClientRect();
-          var mr = mid.getBoundingClientRect();
-          var delta = (mr.left + mr.width / 2) - (pr.left + pr.width / 2);
-          panel.scrollBy({ left: delta, behavior: smooth ? 'smooth' : 'auto' });
-        });
-      }
-      function step(dir) {
-        var panel = activePanel();
-        if (!panel) return;
-        var card = panel.children[0];
-        var amount = card ? card.getBoundingClientRect().width + 16 : panel.clientWidth * 0.8;
-        panel.scrollBy({ left: dir * amount, behavior: 'smooth' });
-      }
-      function init() { centerMiddle(activePanel(), false); }
-      if (document.readyState === 'complete') init();
-      else window.addEventListener('load', init);
-      document.querySelectorAll('.pricing-tab').forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          requestAnimationFrame(function () { centerMiddle(activePanel(), false); });
-        });
-      });
-      var prev = document.getElementById('pricingPrev');
-      var next = document.getElementById('pricingNext');
-      if (prev) prev.addEventListener('click', function () { step(-1); });
-      if (next) next.addEventListener('click', function () { step(1); });
-      var rz;
-      window.addEventListener('resize', function () {
-        clearTimeout(rz); rz = setTimeout(function () { centerMiddle(activePanel(), false); }, 150);
       });
     })();
   </script>
