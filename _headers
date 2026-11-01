@@ -13,3 +13,8 @@
   Permissions-Policy: camera=(), microphone=()
   Strict-Transport-Security: max-age=31536000
   Content-Security-Policy-Report-Only: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; frame-src https://*.arboxapp.com https://www.google.com; connect-src 'self'
+
+# The hero video is heavy (~5MB) and never changes in place (a new cut gets a new name),
+# so let browsers keep it for a week.
+/video/*
+  Cache-Control: public, max-age=604800
