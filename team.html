@@ -113,6 +113,12 @@
 
     /* ── Scroll reveal ───────────────────────────────────── */
     [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); will-change: opacity, transform; }
+    /* ── Coach portraits: large photo instead of a 64px avatar ── */
+    .coach-photo { width: 100% !important; height: auto !important; aspect-ratio: 4 / 5; border-radius: 1.25rem; font-size: 3.5rem; }
+    .coach-photo img { object-position: 50% 22%; }
+    .coach-head { flex-direction: column; align-items: stretch; gap: 1.25rem; }
+    @media (min-width: 640px) { .coach-photo-lg { width: 13rem !important; } }
+    .coach-photo-lg + div { padding-top: 2.25rem; }
     [data-reveal].is-visible { opacity: 1; transform: none; will-change: auto; }
 
     @keyframes bob { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(8px) } }
@@ -196,8 +202,8 @@
       <a href="index.html" class="group flex items-center gap-2.5" aria-label="קרוספיט שמשון — לדף הבית">
         <img src="LOGO.png" alt="קרוספיט שמשון" class="h-11 w-auto rounded-xl shadow-lg shadow-primary/30 transition-transform duration-300 group-hover:rotate-[-8deg]" />
         <span class="flex flex-col items-center leading-none">
-          <span class="font-display text-xl font-extrabold tracking-wide text-fg">SHIMSHON</span>
-          <span class="text-[11px] font-semibold tracking-[.2em] text-primary-fg">CROSSFIT</span>
+          <span class="font-display text-xl font-extrabold tracking-wide text-fg">CrossFit</span>
+          <span class="text-[11px] font-semibold tracking-[.2em] text-primary-fg">SHIMSHON</span>
         </span>
       </a>
 
@@ -209,7 +215,6 @@
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-fg-2 transition-colors hover:text-fg" href="kids.html">ילדים ונוער</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-fg-2 transition-colors hover:text-fg" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-fg-2 transition-colors hover:text-fg" href="index.html#pricing">מנויים</a></li>
-        <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-fg-2 transition-colors hover:text-fg" href="index.html#faq">שאלות נפוצות</a></li>
         <li><a class="navlink rounded-lg px-3.5 py-2 text-sm font-semibold text-fg-2 transition-colors hover:text-fg" href="#contact">צור קשר</a></li>
       </ul>
 
@@ -241,7 +246,6 @@
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-fg-2 hover:bg-surface-2 hover:text-fg" href="kids.html">ילדים ונוער</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-fg-2 hover:bg-surface-2 hover:text-fg" href="index.html#schedule">מערכת שעות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-fg-2 hover:bg-surface-2 hover:text-fg" href="index.html#pricing">מנויים</a></li>
-        <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-fg-2 hover:bg-surface-2 hover:text-fg" href="index.html#faq">שאלות נפוצות</a></li>
         <li><a class="mobilelink block rounded-xl px-4 py-3 font-semibold text-fg-2 hover:bg-surface-2 hover:text-fg" href="#contact">צור קשר</a></li>
       </ul>
       <a href="index.html#pricing" class="mobilelink btn btn-primary mt-2 flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3 font-extrabold text-ink">ניסיון ראשון</a>
@@ -298,7 +302,7 @@
             <!-- Shimi Peretz -->
             <article class="card relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-lg shadow-primary/10 sm:flex-row sm:items-center" data-reveal>
               <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">מייסד ובעלים</span>
-              <span class="relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary-fg ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">שפ<img src="PHOTO/thumbs/shimi.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <span class="coach-photo coach-photo-lg relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary-fg ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">שפ<img src="PHOTO/shimi.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-3xl font-bold leading-tight text-fg">שימי פרץ</h2>
                 <span class="mt-1 block text-base font-bold text-primary-fg">בעלים, מנהל המועדון ומאמן</span>
@@ -308,7 +312,7 @@
             <!-- Simona Herzberg -->
             <article class="card relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-primary/40 bg-gradient-to-br from-surface-2 to-surface p-8 shadow-lg shadow-primary/10 sm:flex-row sm:items-center" data-reveal>
               <span class="absolute left-8 top-7 rounded-full bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-ink">מייסדת ובעלים</span>
-              <span class="relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary-fg ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">סה<img src="PHOTO/thumbs/simona.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+              <span class="coach-photo coach-photo-lg relative grid h-24 w-24 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-4xl font-extrabold text-primary-fg ring-1 ring-primary/30 overflow-hidden" aria-hidden="true">סה<img src="PHOTO/simona.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-3xl font-bold leading-tight text-fg">סימונה הרצברג</h2>
                 <span class="mt-1 block text-base font-bold text-primary-fg">בעלים, מתאמנת, מאמנת, תואר ראשון ושני מאוניברסיטת ת"א.</span>
@@ -320,8 +324,8 @@
           <div class="flex flex-wrap justify-center gap-5">
             <!-- Aviram Gerti -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אג<img src="PHOTO/thumbs/aviram.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אג<img src="PHOTO/aviram.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">אבירם גרטי</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">מאמן</span>
@@ -332,8 +336,8 @@
 
           <!-- Tanya Ostlov -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">טא<img src="PHOTO/thumbs/tanya.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">טא<img src="PHOTO/tanya.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">טניה אוסטלוב</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">אחראית תוכנית האימונים ומאמנת</span>
@@ -344,8 +348,8 @@
 
           <!-- Inbal Ben-Zeev -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">עב<img src="PHOTO/thumbs/inbal.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">עב<img src="PHOTO/inbal.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">ענבל בן־זאב</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">מאמנת</span>
@@ -356,8 +360,8 @@
 
           <!-- Evelyn Walach -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">או<img src="PHOTO/thumbs/evelin.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">או<img src="PHOTO/evelin.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">אוולין וולך</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">מאמנת</span>
@@ -368,8 +372,8 @@
 
           <!-- Steven Wallach -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">סו<img src="PHOTO/thumbs/steven.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">סו<img src="PHOTO/steven.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">סטיבן וולך</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">מאמן</span>
@@ -380,8 +384,8 @@
 
           <!-- Avi Klatzel -->
           <article class="card card-hover group relative flex w-full flex-col rounded-2xl border border-line bg-surface p-7 sm:w-[calc(50%_-_0.625rem)] lg:w-[calc(33.333%_-_0.834rem)]" data-reveal>
-            <div class="flex items-center gap-4">
-              <span class="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אק<img src="PHOTO/thumbs/avi.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
+            <div class="coach-head flex items-center gap-4">
+              <span class="coach-photo relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/30 to-orange-600/10 font-display text-2xl font-extrabold text-primary-fg ring-1 ring-primary/30 transition-colors duration-300 group-hover:from-primary/40 overflow-hidden" aria-hidden="true">אק<img src="PHOTO/avi.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/></span>
               <div>
                 <h2 class="font-display text-xl font-bold leading-tight text-fg">אבי קלצל</h2>
                 <span class="mt-0.5 block text-sm font-bold text-primary-fg">מאמן</span>
@@ -1153,7 +1157,7 @@
         var src = img ? img.getAttribute('src') : '';
         var imgTag = src ? '<img src="' + src + '" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="absolute inset-0 h-full w-full object-cover"/>' : '';
         return '<div class="flex flex-col items-center text-center">' +
-            '<span class="relative grid h-28 w-28 shrink-0 place-items-center overflow-hidden rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-5xl font-extrabold text-primary-fg ring-1 ring-primary/30">' + initial + imgTag + '</span>' +
+            '<span style="max-width:15rem" class="coach-photo relative grid h-28 w-28 shrink-0 place-items-center overflow-hidden rounded-3xl bg-gradient-to-br from-primary/35 to-orange-600/10 font-display text-5xl font-extrabold text-primary-fg ring-1 ring-primary/30">' + initial + imgTag + '</span>' +
             '<h2 class="mt-5 font-display text-2xl font-bold text-fg">' + name + '</h2>' +
             (role ? '<span class="mt-1.5 block text-sm font-bold text-primary-fg">' + role + '</span>' : '') +
             '<p class="mt-5 leading-relaxed text-muted-fg">' + desc + '</p>' +
