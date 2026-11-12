@@ -34,6 +34,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    #pricingGrid > .card { border-top-width: 6px; border-top-color: var(--plan-bar); }
     body { background-color: rgb(var(--c-base)); }
 
     /* ── Desktop display scale — page reads too small at 100% browser zoom ── */
@@ -329,7 +330,7 @@
       <!-- Logo -->
       <a aria-label="קרוספיט שמשון — לדף הבית" class="group flex items-center gap-2.5" href="#hero">
         <img src="LOGO.png" alt="קרוספיט שמשון" class="h-11 w-auto rounded-xl shadow-lg shadow-primary/30 transition-transform duration-300 group-hover:rotate-[-8deg]">
-        <span class="flex flex-col leading-none">
+        <span class="flex flex-col items-center leading-none">
           <span class="font-display text-xl font-extrabold tracking-wide text-fg">CrossFit</span>
           <span class="text-[11px] font-semibold tracking-[.2em] text-primary-fg">SHIMSHON</span>
         </span>
@@ -642,7 +643,7 @@
         <div id="pricingGrid" class="mt-10 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <!-- ── MONTHLY ── -->
           <!-- BASIC -->
-          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
+          <div style="--plan-bar:#FDBA74" class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
             <h3 class="font-display text-xl font-bold text-fg">BASIC</h3>
             <p class="mt-1 text-sm text-muted-fg">להתחלה גמישה ולשמירה על כושר</p>
             <div class="mt-4 flex items-end gap-1">
@@ -655,7 +656,7 @@
             <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-line bg-surface-2 px-6 py-3 font-bold text-fg hover:border-primary/60 hover:text-primary-fg" href="#contact">בחירת מנוי</a>
           </div>
           <!-- PRO (popular) -->
-          <div class="card relative flex scale-[1.02] flex-col rounded-3xl border-2 border-primary bg-gradient-to-b from-surface-2 to-surface p-6 shadow-2xl shadow-primary/10 lg:-mt-4 is-visible" data-reveal="">
+          <div style="--plan-bar:#F15A24" class="card relative flex scale-[1.02] flex-col rounded-3xl border-2 border-primary bg-gradient-to-b from-surface-2 to-surface p-6 shadow-2xl shadow-primary/10 lg:-mt-4 is-visible" data-reveal="">
             <span class="absolute -top-3.5 right-1/2 translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-extrabold uppercase tracking-wide text-ink shadow-lg shadow-primary/40">הכי פופולרי</span>
             <h3 class="font-display text-xl font-bold text-primary-fg">PRO</h3>
             <p class="mt-1 text-sm text-muted-fg">לכל מי שרוצה להתמכר לתוצאות</p>
@@ -669,7 +670,7 @@
             <a class="btn btn-primary btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl bg-primary px-6 py-3 font-extrabold text-ink" href="#contact">התחילו ניסיון כבר מחר</a>
           </div>
           <!-- ATHLETE -->
-          <div class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
+          <div style="--plan-bar:#C2410C" class="card card-hover flex flex-col rounded-3xl border border-line bg-surface p-6 is-visible" data-reveal="">
             <h3 class="font-display text-xl font-bold text-fg">ATHLETE</h3>
             <p class="mt-1 text-sm text-muted-fg">ליווי מלא ותוצאות מקסימליות</p>
             <div class="mt-4 flex items-end gap-1">
@@ -684,7 +685,7 @@
 
           <!-- ── YOUTH (blue) ── -->
           <!-- קרוספיט ילדים -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+          <div style="--plan-bar:#38BDF8" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט ילדים</h3>
               <p class="mt-1 text-sm text-sky-200">גילאים 6-11</p>
@@ -700,7 +701,7 @@
             <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3 font-bold text-fg hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
           </div>
           <!-- קרוספיט נוער - מתקדם -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+          <div style="--plan-bar:#1E40AF" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט נוער - מתקדם</h3>
               <p class="mt-1 text-sm text-sky-200">גילאים 12-16</p>
@@ -716,7 +717,7 @@
             <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-sky-500/50 bg-surface-2 px-6 py-3 font-bold text-fg hover:border-sky-400 hover:text-sky-300" href="#contact">בחירת מנוי</a>
           </div>
           <!-- קרוספיט נוער - בסיסי -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
+          <div style="--plan-bar:#3B82F6" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-sky-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-sky-500/25 bg-sky-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-sky-400">קרוספיט נוער - בסיסי</h3>
               <p class="mt-1 text-sm text-sky-200">גילאים 12-16</p>
@@ -734,7 +735,7 @@
 
           <!-- ── CASUAL / DROP-IN (gray) ── -->
           <!-- סדנת יסודות -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+          <div style="--plan-bar:#2E2E92" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-fg-2">סדנת יסודות</h3>
               <p class="mt-1 text-sm text-fg-3">בסיס נכון לפני שמתחילים</p>
@@ -749,7 +750,7 @@
             <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3 font-bold text-fg hover:border-slate-400 hover:text-fg-2" href="#contact">לפרטים והרשמה</a>
           </div>
           <!-- אימון ניסיון -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+          <div style="--plan-bar:#00005A" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-fg-2">אימון ניסיון</h3>
               <p class="mt-1 text-sm text-fg-3">בואו להכיר את הבוקס</p>
@@ -764,7 +765,7 @@
             <a class="btn btn-shine focus-ring mt-6 inline-flex w-full items-center justify-center rounded-xl border border-slate-500/50 bg-surface-2 px-6 py-3 font-bold text-fg hover:border-slate-400 hover:text-fg-2" href="#contact">לתיאום אימון</a>
           </div>
           <!-- DROP IN -->
-          <div class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
+          <div style="--plan-bar:#FB923C" class="card card-hover flex flex-col overflow-hidden rounded-3xl border border-slate-500/40 bg-surface p-6">
             <div class="-mx-6 -mt-6 mb-5 border-b border-slate-500/25 bg-slate-500/10 px-6 py-4">
               <h3 class="font-display text-xl font-bold text-fg-2">DROP IN</h3>
               <p class="mt-1 text-sm text-fg-3">למתאמנים מנוסים</p>
