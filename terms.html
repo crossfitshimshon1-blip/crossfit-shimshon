@@ -33,7 +33,6 @@
     html { scroll-behavior: smooth; }
     /* ── Contact: consent checkbox + stacked info cards on desktop ── */
     .consent-box { width: 1.15rem; height: 1.15rem; margin-top: .2rem; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
-    .consent-box[aria-invalid="true"] { outline: 2px solid #dc2626; outline-offset: 2px; }
     @media (min-width: 1024px) { .contact-info { grid-template-columns: 1fr !important; } }
     body { background-color: rgb(var(--c-base)); }
 
@@ -527,14 +526,14 @@
                 <textarea id="msg" name="msg" rows="4" class="focus-ring w-full resize-y rounded-xl border border-line bg-surface px-4 py-3 text-fg placeholder:text-slate-500 focus:border-primary" placeholder="אשמח לתאם אימון ניסיון..."></textarea>
               </div>
               <label class="flex items-start gap-2.5 text-sm leading-relaxed text-fg-2" for="consent">
-                <input class="consent-box" id="consent" name="consent" type="checkbox" value="מאשר/ת" required>
-                <span>אני מאשר/ת שהפרטים שלי יעברו לגורמים הרלוונטים, ושנעשה שימוש בפרטים אלה לפרסום, שיווק של העסק ויצירת קשר עמי. <span aria-hidden="true" class="text-primary-fg">*</span></span>
+                <input class="consent-box" id="consent" name="consent" type="checkbox" value="מאשר/ת">
+                <span>אני מאשר/ת שהפרטים שלי יעברו לגורמים הרלוונטים, ושנעשה שימוש בפרטים אלה לפרסום, שיווק של העסק ויצירת קשר עמי.</span>
               </label>
               <button type="submit" class="btn btn-primary btn-shine focus-ring inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-extrabold text-ink sm:w-auto">
                 שליחה ותיאום אימון
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
               </button>
-              <p class="text-xs leading-relaxed text-muted-fg">הפרטים שתמסרו (שם וטלפון – לצורך חזרה אליכם; דוא״ל והודעה – רשות) ישמשו רק כדי ליצור איתכם קשר ולתאם אימון, ולא יועברו לשיווק. אין חובה חוקית למסור אותם, אך בלעדיהם לא נוכל לחזור אליכם. הטופס מעובד אצל ספק האחסון Netlify. לפרטים ולזכויותיכם (עיון, תיקון ומחיקה) ראו <a class="font-semibold text-fg-2 underline" href="privacy.html">מדיניות הפרטיות</a>.</p>
+              <p class="text-xs leading-relaxed text-muted-fg">הפרטים שתמסרו (שם וטלפון – לצורך חזרה אליכם; דוא״ל והודעה – רשות) ישמשו כדי ליצור איתכם קשר ולתאם אימון. שימוש בפרטים לפרסום ולשיווק ייעשה רק אם סימנתם את תיבת האישור, שאינה חובה וניתן לבטל אותה בכל עת. אין חובה חוקית למסור אותם, אך בלעדיהם לא נוכל לחזור אליכם. הטופס מעובד אצל ספק האחסון Netlify. לפרטים ולזכויותיכם (עיון, תיקון ומחיקה) ראו <a class="font-semibold text-fg-2 underline" href="privacy.html">מדיניות הפרטיות</a>.</p>
               <p id="formStatus" role="status" aria-live="polite" class="text-sm text-accent"></p>
             </form>
           </div>
@@ -1173,13 +1172,10 @@
             f.removeAttribute('aria-invalid');
           }
         });
-        var consent = form.querySelector('#consent');
-        var consentOk = !consent || consent.checked;
-        if (consent) { if (consentOk) consent.removeAttribute('aria-invalid'); else consent.setAttribute('aria-invalid', 'true'); }
-        if (!ok || !consentOk) {
+        if (!ok) {
           status.classList.remove('text-accent');
           status.classList.add('text-red-600');
-          status.textContent = !ok ? 'נא למלא שם וטלפון כדי שנוכל לחזור אליכם.' : 'נא לסמן את תיבת האישור כדי לשלוח את הטופס.';
+          status.textContent = 'נא למלא שם וטלפון כדי שנוכל לחזור אליכם.';
           var firstInvalid = form.querySelector('[aria-invalid="true"]');
           if (firstInvalid) firstInvalid.focus();
           return;
