@@ -31,6 +31,10 @@
     }
 
     html { scroll-behavior: smooth; }
+    /* ── Contact: consent checkbox + stacked info cards on desktop ── */
+    .consent-box { width: 1.15rem; height: 1.15rem; margin-top: .2rem; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
+    .consent-box[aria-invalid="true"] { outline: 2px solid #dc2626; outline-offset: 2px; }
+    @media (min-width: 1024px) { .contact-info { grid-template-columns: 1fr !important; } }
     body { background-color: rgb(var(--c-base)); }
 
     /* ── Desktop display scale — page reads too small at 100% browser zoom ── */
@@ -390,6 +394,10 @@
                 <label for="msg" class="mb-1.5 block text-sm font-bold text-fg-2">איך נוכל לעזור?</label>
                 <textarea id="msg" name="msg" rows="4" class="focus-ring w-full resize-y rounded-xl border border-line bg-surface px-4 py-3 text-fg placeholder:text-slate-500 focus:border-primary" placeholder="אשמח לתאם אימון ניסיון..."></textarea>
               </div>
+              <label class="flex items-start gap-2.5 text-sm leading-relaxed text-fg-2" for="consent">
+                <input class="consent-box" id="consent" name="consent" type="checkbox" value="מאשר/ת" required>
+                <span>אני מאשר/ת שהפרטים שלי יעברו לגורמים הרלוונטים, ושנעשה שימוש בפרטים אלה לפרסום, שיווק של העסק ויצירת קשר עמי. <span aria-hidden="true" class="text-primary-fg">*</span></span>
+              </label>
               <button type="submit" class="btn btn-primary btn-shine focus-ring inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-extrabold text-ink sm:w-auto">
                 שליחה ותיאום אימון
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
@@ -401,7 +409,7 @@
 
           <!-- details + map -->
           <div data-reveal>
-            <div class="grid gap-4 sm:grid-cols-2">
+            <div class="contact-info grid gap-4 sm:grid-cols-2">
               <a href="tel:+972529201835" class="card flex items-start gap-2.5 rounded-2xl border border-line bg-surface p-5 hover:text-fg">
                 <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary-fg"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">טלפון</span><span class="block font-bold text-fg">052-9201835</span></span>
@@ -413,10 +421,6 @@
               <div class="card flex items-start gap-2.5 rounded-2xl border border-line bg-surface p-4">
                 <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary-fg"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
                 <span><span class="block text-xs font-semibold text-muted-fg">כתובת</span><span class="block font-bold text-fg whitespace-nowrap">נחל אלכסנדר 19</span><span class="block font-bold text-fg whitespace-nowrap">צור יצחק</span></span>
-              </div>
-              <div class="card flex items-start gap-2.5 rounded-2xl border border-line bg-surface p-4">
-                <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/12 text-primary-fg"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-                <span><span class="block text-xs font-semibold text-muted-fg">שעות פעילות</span><span class="block font-bold text-fg">א׳–ה׳ 06:00–22:00<br>ו׳ 08:00–13:00</span></span>
               </div>
             </div>
 
@@ -1037,10 +1041,13 @@
             f.removeAttribute('aria-invalid');
           }
         });
-        if (!ok) {
+        var consent = form.querySelector('#consent');
+        var consentOk = !consent || consent.checked;
+        if (consent) { if (consentOk) consent.removeAttribute('aria-invalid'); else consent.setAttribute('aria-invalid', 'true'); }
+        if (!ok || !consentOk) {
           status.classList.remove('text-accent');
           status.classList.add('text-red-600');
-          status.textContent = 'נא למלא שם וטלפון כדי שנוכל לחזור אליכם.';
+          status.textContent = !ok ? 'נא למלא שם וטלפון כדי שנוכל לחזור אליכם.' : 'נא לסמן את תיבת האישור כדי לשלוח את הטופס.';
           var firstInvalid = form.querySelector('[aria-invalid="true"]');
           if (firstInvalid) firstInvalid.focus();
           return;
