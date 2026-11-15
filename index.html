@@ -309,7 +309,11 @@
     .hero-shade { position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background:
         linear-gradient(to top, #00005A 0%, rgba(0,0,90,0) 22%),
-        rgba(0,0,60,.65); }
+        radial-gradient(ellipse 60% 45% at 50% 50%, rgba(0,0,50,.42), rgba(0,0,50,0) 72%),
+        rgba(0,0,60,.36); }
+    /* lighter tint so the video's own colours show; keep the headline crisp */
+    #hero .glow-orb { opacity: .1; }
+    #hero .hero-content h1, #hero .hero-content p { filter: drop-shadow(0 2px 14px rgba(0,0,40,.6)); }
     #hero .hero-content { margin-inline: auto; text-align: center; }
     #hero .hero-content > div { justify-content: center; }
     /* true vertical centre: balance the nav offset, and undo the desktop html zoom so the hero is one screen tall */
