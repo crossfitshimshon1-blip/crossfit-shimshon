@@ -37,16 +37,6 @@
     /* ── Contact: consent checkbox + stacked info cards on desktop ── */
     .consent-box { width: 1.15rem; height: 1.15rem; margin-top: .2rem; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
     @media (min-width: 1024px) { .contact-info { grid-template-columns: 1fr !important; } }
-    /* ── Why Shimshon ── */
-    .why-grid { display: grid; gap: 1.25rem; }
-    @media (min-width: 768px) { .why-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .why-card { position: relative; overflow: hidden; border-radius: 1.5rem; padding: 2rem 1.75rem; background: rgb(var(--c-surface, 255 255 255)); border: 1px solid color-mix(in srgb, var(--why) 35%, transparent); border-top: 6px solid var(--why); background-image: linear-gradient(180deg, color-mix(in srgb, var(--why) 10%, transparent), transparent 65%); box-shadow: 0 18px 40px -28px color-mix(in srgb, var(--why) 70%, transparent); transition: transform .3s ease, box-shadow .3s ease; }
-    .why-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -26px color-mix(in srgb, var(--why) 80%, transparent); }
-    .why-icon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 1rem; color: #fff; background: linear-gradient(135deg, var(--why), color-mix(in srgb, var(--why) 70%, #00005A)); box-shadow: 0 10px 22px -10px var(--why); }
-    .why-icon svg { width: 1.75rem; height: 1.75rem; }
-    .why-title { margin-top: 1.25rem; font-size: 1.6rem; font-weight: 800; color: var(--why); }
-    .why-card[style*="#00005A"] .why-title { color: #1E1E7A; }
-    .why-text { margin-top: .6rem; font-size: 1.05rem; line-height: 1.75; color: rgb(var(--c-fg-2, 51 65 85)); }
     /* ── Pricing: every plan carries its own colour ── */
     #pricingGrid > .card { border-color: color-mix(in srgb, var(--plan-bar) 45%, transparent); background-image: linear-gradient(180deg, color-mix(in srgb, var(--plan-bar) 10%, transparent), transparent 70%); }
     #pricingGrid .plan-head { border: 0; border-radius: calc(1.5rem - 2px) calc(1.5rem - 2px) 0 0; background: linear-gradient(135deg, var(--plan-bar), color-mix(in srgb, var(--plan-bar) 78%, #00005A)); }
@@ -483,28 +473,21 @@
           <div data-reveal="" class="is-visible">
 
             <h2 class="mt-3 font-display text-4xl font-extrabold uppercase leading-tight text-fg sm:text-5xl">
-              קצת&nbsp;<span class="gradient-text">עלינו</span></h2>
-            <p class="mt-6 text-lg leading-relaxed text-fg-2">קרוספיט שמשון הוא מועדון ספורט וכושר משפחתי הממוקם בישוב צור יצחק.
-<div>המועדון, או בוקס- כפי שהוא נקרא בשפת הקרוספיט, מעניק לחבריו כלים שיאפשרו להם לנהל אורח חיים בריא וספורטיבי.
-</div><div>בקרוספיט שמשון אנחנו מאמינים שמקצוענות במסגרת משפחתית תומכת וחמה הם הבסיס לחיים בריאים ולקהילה בריאה ועל כן אנחנו משקיעים רבות הן בפיתוח הלב של המקום והאוירה המיוחדת בו, והן בצוות המדריכים המצוין, יחד עם ציוד מתקדם ברמה גבוהה.</div><div>
-</div></p>
+              קצת עלינו – <span class="gradient-text">למה דווקא שמשון?</span></h2>
+            <p class="mt-6 text-lg leading-relaxed text-fg-2">קרוספיט שמשון הוא מועדון כושר וקהילה בצור יצחק, המשלב אימונים מקצועיים, יחס אישי ואווירה משפחתית. אצלנו כל אחד יכול להתחזק ולהתקדם – בלי קשר לרמת הכושר או לניסיון הקודם שלו.</p>
 
-            <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+            <ul class="mt-8 grid gap-5">
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span>
-                <div><p class="font-bold text-fg">צוות מאמנים מצוין</p><p class="text-sm text-muted-fg">מקצוענים שחיים ונושמים את הספורט.</p></div>
+                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+                <div><p class="font-bold text-fg">קהילה שמרגישים חלק ממנה</p><p class="text-sm leading-relaxed text-muted-fg">אצלנו לא מגיעים רק להתאמן. מכירים אנשים, מעודדים אחד את השני ונהנים להיות חלק מקהילה מגובשת ותומכת.</p></div>
               </li>
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span>
-                <div><p class="font-bold text-fg">הציוד המתקדם ביותר</p><p class="text-sm text-muted-fg">מתחם מאובזר בסטנדרט הגבוה ביותר.</p></div>
+                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="m16 11 2 2 4-4"></path></svg></span>
+                <div><p class="font-bold text-fg">יחס אישי ומקצועיות</p><p class="text-sm leading-relaxed text-muted-fg">צוות מאמנים מקצועי שמכיר אתכם, מלווה אתכם ודואג שתתאמנו נכון, בבטחה ובהתאם ליכולות שלכם.</p></div>
               </li>
               <li class="flex items-start gap-3">
-                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span>
-                <div><p class="font-bold text-fg">אווירה קהילתית ותומכת</p><p class="text-sm text-muted-fg">בוקס משפחתי שמרים אתכם קדימה.</p></div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"></path></svg></span>
-                <div><p class="font-bold text-fg">אורח חיים בריא ומאוזן</p><p class="text-sm text-muted-fg">כלים להרגלים שנשארים לכל החיים.</p></div>
+                <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent/15 text-accent"><svg aria-hidden="true" class="h-5 w-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"></path><path d="M16 7h6v6"></path></svg></span>
+                <div><p class="font-bold text-fg">מתקדמים בקצב שלכם</p><p class="text-sm leading-relaxed text-muted-fg">לא משנה אם אתם בתחילת הדרך או מתאמנים מנוסים. האימונים מותאמים לרמה האישית שלכם, כדי שתוכלו להשתפר ולהגיע ליעדים שלכם.</p></div>
               </li>
             </ul>
 
@@ -513,33 +496,6 @@
               <svg aria-hidden="true" class="h-4 w-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════ WHY SHIMSHON ════════════════════ -->
-    <section class="relative overflow-hidden border-t border-line py-24 sm:py-28" id="why">
-      <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
-        <div class="mx-auto max-w-3xl text-center" data-reveal>
-          <h2 class="font-display text-4xl font-extrabold leading-tight text-fg sm:text-5xl">למה דווקא <span class="gradient-text">שמשון</span>?</h2>
-          <p class="mt-5 text-lg leading-relaxed text-fg-2">לא רק סוגי אימון. שלושה דברים שעושים את ההבדל.</p>
-        </div>
-        <div class="why-grid mt-14">
-          <article class="why-card" style="--why:#F15A24" data-reveal>
-            <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-            <h3 class="why-title font-display">קהילה</h3>
-            <p class="why-text">אנשים שמכירים אחד את השני, מפרגנים, מעודדים ומתאמנים ביחד.</p>
-          </article>
-          <article class="why-card" style="--why:#2563EB" data-reveal>
-            <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span>
-            <h3 class="why-title font-display">יחס אישי</h3>
-            <p class="why-text">המאמנים מכירים את המתאמנים, עוזרים להם ומשגיחים על הטכניקה שלהם.</p>
-          </article>
-          <article class="why-card" style="--why:#00005A" data-reveal>
-            <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></span>
-            <h3 class="why-title font-display">התקדמות אישית</h3>
-            <p class="why-text">כל אחד מתאמן בהתאם ליכולות שלו ומשתפר בקצב שלו.</p>
-          </article>
         </div>
       </div>
     </section>
