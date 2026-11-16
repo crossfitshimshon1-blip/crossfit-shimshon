@@ -34,7 +34,10 @@
     /* CrossFit wordmark: square tittle over the "i", as in the official logo */
     .cf-i { position: relative; display: inline-block; line-height: 1; }
     .cf-i::after { content: ""; position: absolute; left: 50%; top: .16em; width: .16em; height: .16em; background: currentColor; transform: translateX(-50%); }
+    .gradient-text .cf-i { color: #F15A24; -webkit-text-fill-color: #F15A24; }
     .gradient-text .cf-i::after { background: #F15A24; }
+    .cf-I { position: relative; display: inline-block; line-height: 1; }
+    .cf-I::after { content: ""; position: absolute; left: calc(50% - .1em); top: -.03em; width: .13em; height: .13em; background: currentColor; transform: translateX(-50%); }
     /* ── Contact: consent checkbox + stacked info cards on desktop ── */
     .consent-box { width: 1.15rem; height: 1.15rem; margin-top: .2rem; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
     @media (min-width: 1024px) { .contact-info { grid-template-columns: 1fr !important; } }
@@ -190,7 +193,7 @@
         </span>
         <span class="flex flex-col items-center leading-none">
           <span class="font-display text-xl font-extrabold tracking-wide text-fg">CrossF<span class="cf-i">ı</span>t</span>
-          <span class="text-[11px] font-semibold tracking-[.2em] text-primary-fg">SHIMSHON</span>
+          <span class="text-[11px] font-semibold tracking-[.2em] text-primary-fg" aria-label="SHIMSHON">SH<span class="cf-I">I</span>MSHON</span>
         </span>
       </a>
 
@@ -264,7 +267,6 @@
         </nav>
 
         <div class="max-w-3xl" data-reveal>
-          <span class="eyebrow inline-flex items-center gap-2 rounded-full border border-sky-500/40 bg-sky-500/10 px-4 py-1.5 text-xs font-bold uppercase text-sky-300">KIDS &amp; TEENS</span>
           <h1 class="mt-5 font-display text-5xl font-extrabold uppercase leading-[.95] text-fg sm:text-6xl">
             קרוספיט ילדים ונוער
           </h1>
