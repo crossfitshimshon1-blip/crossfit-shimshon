@@ -37,6 +37,7 @@
     /* CrossFit wordmark: square tittle over the "i", as in the official logo */
     .cf-i { position: relative; display: inline-block; line-height: 1; }
     .cf-i::after { content: ""; position: absolute; left: 50%; top: .16em; width: .16em; height: .16em; background: currentColor; transform: translateX(-50%); }
+    .gradient-text .cf-i::after { background: #F15A24; }
     /* ── Contact: consent checkbox + stacked info cards on desktop ── */
     .consent-box { width: 1.15rem; height: 1.15rem; margin-top: .2rem; flex-shrink: 0; accent-color: var(--primary); cursor: pointer; }
     @media (min-width: 1024px) { .contact-info { grid-template-columns: 1fr !important; } }
@@ -427,7 +428,7 @@
 
           <h1 class="font-display text-6xl font-extrabold leading-[.92] text-fg sm:text-7xl md:text-8xl">
             <span class="block text-glow"><span aria-hidden="true">CrossF<span class="cf-i">ı</span>t</span><span class="sr-only">CrossFit</span></span>
-            <span class="block gradient-text">Shimshon</span>
+            <span class="block gradient-text"><span aria-hidden="true">Sh<span class="cf-i">ı</span>mshon</span><span class="sr-only">Shimshon</span></span>
           </h1>
           <p class="mt-3 font-display text-2xl font-bold tracking-wide text-fg-2 sm:text-3xl">יותר מאימון. הרבה יותר ממועדון.</p>
 
@@ -942,7 +943,7 @@
         <div class="mt-16 flex flex-col items-center justify-between gap-6 border-t border-line pt-8 sm:flex-row">
           <a aria-label="קרוספיט שמשון" class="flex items-center gap-2.5" href="#hero">
             <img src="LOGO.png" alt="קרוספיט שמשון" class="h-20 w-auto rounded-xl">
-            <span class="font-display text-lg font-extrabold tracking-wide text-fg">CrossF<span class="cf-i">ı</span>t Shimshon</span>
+            <span class="font-display text-lg font-extrabold tracking-wide text-fg">CrossF<span class="cf-i">ı</span>t Sh<span class="cf-i">ı</span>mshon</span>
           </a>
 
           <!-- social -->
