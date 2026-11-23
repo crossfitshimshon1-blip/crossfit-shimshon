@@ -35,8 +35,9 @@
 
     html { scroll-behavior: smooth; }
     /* CrossFit wordmark: square tittle over the "i", as in the official logo */
+    /* dot top sits exactly on the cap line of the "F" — never higher */
     .cf-i { position: relative; display: inline-block; line-height: 1; }
-    .cf-i::after { content: ""; position: absolute; left: 50%; top: .16em; width: .16em; height: .16em; background: currentColor; transform: translateX(-50%); }
+    .cf-i::after { content: ""; position: absolute; left: 50%; top: .198em; width: .135em; height: .135em; background: currentColor; transform: translateX(-50%); }
     .gradient-text .cf-i { color: #F15A24; -webkit-text-fill-color: #F15A24; }
     .gradient-text .cf-i::after { background: #F15A24; }
     .cf-I { position: relative; display: inline-block; line-height: 1; }
@@ -189,11 +190,6 @@
     .faq-item[aria-expanded-host="true"] .faq-icon { transform: rotate(45deg); }
     /* ── Schedule (static weekly timetable) ───────────────── */
     .sch { margin-top: 3rem; }
-    .sch-tabs { display: flex; gap: .4rem; overflow-x: auto; padding: .25rem .1rem .6rem; scrollbar-width: none; }
-    .sch-tabs::-webkit-scrollbar { display: none; }
-    .sch-tab { flex: 1 0 auto; min-width: 4.4rem; border: 1px solid rgb(var(--c-line)); border-radius: .85rem; background: rgb(var(--c-surface-2)); padding: .65rem .9rem; font-weight: 800; font-size: .95rem; color: rgb(var(--c-fg-2)); transition: background-color .2s, color .2s, box-shadow .2s; }
-    .sch-tab:hover { color: rgb(var(--c-fg)); border-color: rgb(var(--c-fg-3) / .5); }
-    .sch-tab[aria-selected="true"] { background: var(--primary); border-color: var(--primary); color: #0E1030; box-shadow: 0 8px 20px -8px rgba(241,90,36,.6); }
     .sch-wod   { --tag: #F15A24; }
     .sch-skill { --tag: #1B2B8F; }
     .sch-base  { --tag: #0E9F6E; }
@@ -211,13 +207,7 @@
     .sch-name { align-self: flex-start; font-weight: 800; font-size: 1rem; line-height: 1.25; color: rgb(var(--c-fg)); }
     .sch-coach { font-size: .8rem; font-weight: 500; color: rgb(var(--c-muted)); }
     .sch-note { margin-top: 1.25rem; text-align: center; font-size: .875rem; color: rgb(var(--c-muted)); }
-    @media (max-width: 1023.98px) {
-      .sch-js .sch-day { display: none; }
-      .sch-js .sch-day.is-active { display: block; }
-      .sch-js .sch-day-title { display: none; }
-    }
     @media (min-width: 1024px) {
-      .sch-tabs { display: none; }
       .sch-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .6rem; align-items: start; }
       .sch-day { padding: .75rem .55rem; border-radius: 1rem; }
       .sch-day[data-day="5"], .sch-day[data-day="6"] { background: rgb(var(--c-surface-2)); }
@@ -548,6 +538,60 @@
       </div>
     </section>
 
+    <!-- ════════════════════ CTA BAND ════════════════════ -->
+    <section class="zone-dark noise relative overflow-hidden border-t border-line">
+      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image:linear-gradient(to left, rgba(4,6,52,.94), rgba(4,6,52,.88)), url('cross/cross-01.jpeg?v=1');"></div>
+      <div class="glow-orb right-1/4 top-0 h-[300px] w-[300px] bg-primary/40"></div>
+      <div class="relative z-10 mx-auto max-w-content px-4 py-24 text-center sm:px-6 sm:py-28 is-visible" data-reveal="">
+        <h2 class="mx-auto max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight text-fg sm:text-6xl">
+          הקהילה <span class="gradient-text">שלנו</span>
+        </h2>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-fg-2">בואו לגלות למה מאות מתאמנים בחרו בקרוספיט שמשון.</p>
+        <!-- photo gallery -->
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-01.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 1" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-02.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 2" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-03.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 3" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-04.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 4" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-05.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 5" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-06.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 6" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-07.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 7" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-08.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 8" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-09.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 9" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-10.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 10" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
+            <img src="cross/cross-11.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 11" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+        </div>
+        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a class="btn btn-primary btn-shine focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-extrabold text-ink" href="#contact">
+            קבעו אימון ניסיון
+          </a>
+          <a class="btn focus-ring inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-fg/5 px-8 py-4 text-base font-bold text-fg backdrop-blur hover:bg-fg/10" href="tel:+972529201835">052-9201835</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ════════════════════ PROGRAMS ════════════════════ -->
     <section class="relative overflow-hidden border-t border-line py-24 sm:py-28" id="programs">
       <div class="glow-orb left-[-160px] top-24 h-[360px] w-[360px] bg-primary/30"></div>
@@ -672,56 +716,351 @@
       </div>
     </section>
 
-    <!-- ════════════════════ CTA BAND ════════════════════ -->
-    <section class="zone-dark noise relative overflow-hidden border-t border-line">
-      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image:linear-gradient(to left, rgba(4,6,52,.94), rgba(4,6,52,.88)), url('cross/cross-01.jpeg?v=1');"></div>
-      <div class="glow-orb right-1/4 top-0 h-[300px] w-[300px] bg-primary/40"></div>
-      <div class="relative z-10 mx-auto max-w-content px-4 py-24 text-center sm:px-6 sm:py-28 is-visible" data-reveal="">
-        <h2 class="mx-auto max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight text-fg sm:text-6xl">
-          הקהילה <span class="gradient-text">שלנו</span>
-        </h2>
-        <p class="mx-auto mt-5 max-w-xl text-lg text-fg-2">בואו לגלות למה מאות מתאמנים בחרו בקרוספיט שמשון.</p>
-        <!-- photo gallery -->
-        <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-01.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 1" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-02.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 2" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-03.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 3" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-04.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 4" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-05.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 5" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-06.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 6" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-07.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 7" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-08.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 8" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-09.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 9" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-10.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 10" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <div class="group aspect-square overflow-hidden rounded-2xl border border-line bg-surface shadow-lg shadow-black/10">
-            <img src="cross/cross-11.jpeg?v=1" alt="גלריית קרוספיט שמשון — תמונה 11" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
+    <!-- ════════ SCHEDULE (static weekly timetable — Open Gym + basketball group intentionally omitted) ════════ -->
+    <section class="relative overflow-hidden border-t border-line bg-surface py-24 sm:py-28" id="schedule">
+      <div class="glow-orb right-1/3 top-0 h-[320px] w-[320px] bg-primary/20"></div>
+      <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
+        <div class="mx-auto max-w-2xl text-center is-visible" data-reveal="">
+          <span class="eyebrow text-sm font-bold uppercase text-primary-fg">WEEKLY SCHEDULE</span>
+          <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-fg sm:text-5xl">לוח אימונים שבועי</h2>
+          <p class="mt-4 text-lg text-muted-fg">כל שיעורי השבוע במקום אחד. ההרשמה לאימונים מתבצעת באפליקציית Arbox.</p>
         </div>
-        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a class="btn btn-primary btn-shine focus-ring inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-extrabold text-ink" href="#contact">
-            קבעו אימון ניסיון
-          </a>
-          <a class="btn focus-ring inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-fg/5 px-8 py-4 text-base font-bold text-fg backdrop-blur hover:bg-fg/10" href="tel:+972529201835">052-9201835</a>
+
+        <div class="sch is-visible" id="schWeek" data-reveal="">
+          <ul class="sch-legend" aria-label="מקרא סוגי אימונים">
+            <li class="sch-wod"><span class="sch-dot" aria-hidden="true"></span>WOD</li>
+            <li class="sch-skill"><span class="sch-dot" aria-hidden="true"></span>כוח, סיבולת ומיומנות</li>
+            <li class="sch-base"><span class="sch-dot" aria-hidden="true"></span>יסודות למתחילים</li>
+            <li class="sch-youth"><span class="sch-dot" aria-hidden="true"></span>ילדים ונוער</li>
+          </ul>
+          <div class="sch-grid">
+          <div class="sch-day" id="sch-day-sun" data-day="0">
+            <h3 class="sch-day-title">ראשון</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">06:00–07:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">07:00–08:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">09:15–10:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:00–17:00</span>
+                <span class="sch-name">נוער</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">17:00–18:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-base">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name">יסודות 1</span>
+                <span class="sch-coach">סימונה הרצברג</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">Endurance</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name">קליסטניקס</span>
+                <span class="sch-coach">ענבל בן־זאב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">21:00–22:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-mon" data-day="1">
+            <h3 class="sch-day-title">שני</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">09:15–10:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:00–17:00</span>
+                <span class="sch-name">נוער</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:10–17:00</span>
+                <span class="sch-name">ילדים <span dir="ltr">9–11</span></span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">17:00–18:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">17:10–18:00</span>
+                <span class="sch-name">ילדים <span dir="ltr">6–8</span></span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">Strength</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">21:00–22:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-tue" data-day="2">
+            <h3 class="sch-day-title">שלישי</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">06:00–07:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">ענבל בן־זאב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">07:00–08:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">ענבל בן־זאב</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name">קליסטניקס</span>
+                <span class="sch-coach">ענבל בן־זאב</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">17:00–18:00</span>
+                <span class="sch-name">נוער</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">Endurance</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-base">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name">יסודות 2</span>
+                <span class="sch-coach">סימונה הרצברג</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">21:00–22:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-wed" data-day="3">
+            <h3 class="sch-day-title">רביעי</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:00–17:00</span>
+                <span class="sch-name">נוער</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:10–17:00</span>
+                <span class="sch-name">ילדים <span dir="ltr">9–11</span></span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">17:00–18:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">17:10–18:00</span>
+                <span class="sch-name">ילדים <span dir="ltr">6–8</span></span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סימונה הרצברג</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סימונה הרצברג</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">21:00–22:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סימונה הרצברג</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-thu" data-day="4">
+            <h3 class="sch-day-title">חמישי</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">06:00–07:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">07:00–08:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">09:15–10:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אוולין וולך</span>
+              </li>
+              <li class="sch-slot sch-youth">
+                <span class="sch-time" dir="ltr">16:00–17:00</span>
+                <span class="sch-name">נוער</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">17:00–18:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">שימי פרץ</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">Strength</span>
+                <span class="sch-coach">אבירם גרטי</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבירם גרטי</span>
+              </li>
+              <li class="sch-slot sch-skill">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">Weightlifting / Skills</span>
+                <span class="sch-coach">אבירם גרטי</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">21:00–22:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבירם גרטי</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-fri" data-day="5">
+            <h3 class="sch-day-title">שישי</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">07:15–08:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">08:15–09:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">09:15–10:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">טניה אוסטלוב</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">10:15–11:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">12:15–13:15</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">אבי קלצל</span>
+              </li>
+            </ul>
+          </div>
+          <div class="sch-day" id="sch-day-sat" data-day="6">
+            <h3 class="sch-day-title">שבת</h3>
+            <ul class="sch-list">
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">18:00–19:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סטיבן וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">19:00–20:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סטיבן וולך</span>
+              </li>
+              <li class="sch-slot sch-wod">
+                <span class="sch-time" dir="ltr">20:00–21:00</span>
+                <span class="sch-name" dir="ltr">WOD</span>
+                <span class="sch-coach">סטיבן וולך</span>
+              </li>
+            </ul>
+          </div>
+          </div>
+          <p class="sch-note">* המערכת עשויה להשתנות בחגים ובשבועות מיוחדים. לשיעור ניסיון או לשאלות — <a class="font-bold text-primary-fg underline-offset-4 hover:underline" href="#contact">צרו קשר</a>.</p>
         </div>
       </div>
     </section>
@@ -891,390 +1230,6 @@
     </section>
 
     <!-- ════════════════════ FAQ ════════════════════ -->
-
-    <!-- ════════ SCHEDULE (static weekly timetable — Open Gym + basketball group intentionally omitted) ════════ -->
-    <section class="relative overflow-hidden border-t border-line bg-surface py-24 sm:py-28" id="schedule">
-      <div class="glow-orb right-1/3 top-0 h-[320px] w-[320px] bg-primary/20"></div>
-      <div class="relative z-10 mx-auto max-w-content px-4 sm:px-6">
-        <div class="mx-auto max-w-2xl text-center is-visible" data-reveal="">
-          <span class="eyebrow text-sm font-bold uppercase text-primary-fg">WEEKLY SCHEDULE</span>
-          <h2 class="mt-3 font-display text-4xl font-extrabold uppercase text-fg sm:text-5xl">לוח אימונים שבועי</h2>
-          <p class="mt-4 text-lg text-muted-fg">כל שיעורי השבוע במקום אחד. ההרשמה לאימונים מתבצעת באפליקציית Arbox.</p>
-        </div>
-
-        <div class="sch is-visible" id="schWeek" data-reveal="">
-          <div class="sch-tabs" role="tablist" aria-label="בחירת יום">
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-sun" aria-controls="sch-day-sun" aria-selected="false" data-day="0">ראשון</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-mon" aria-controls="sch-day-mon" aria-selected="false" data-day="1">שני</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-tue" aria-controls="sch-day-tue" aria-selected="false" data-day="2">שלישי</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-wed" aria-controls="sch-day-wed" aria-selected="false" data-day="3">רביעי</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-thu" aria-controls="sch-day-thu" aria-selected="false" data-day="4">חמישי</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-fri" aria-controls="sch-day-fri" aria-selected="false" data-day="5">שישי</button>
-            <button type="button" role="tab" class="sch-tab focus-ring" id="sch-tab-sat" aria-controls="sch-day-sat" aria-selected="false" data-day="6">שבת</button>
-          </div>
-          <ul class="sch-legend" aria-label="מקרא סוגי אימונים">
-            <li class="sch-wod"><span class="sch-dot" aria-hidden="true"></span>WOD</li>
-            <li class="sch-skill"><span class="sch-dot" aria-hidden="true"></span>כוח, סיבולת ומיומנות</li>
-            <li class="sch-base"><span class="sch-dot" aria-hidden="true"></span>יסודות למתחילים</li>
-            <li class="sch-youth"><span class="sch-dot" aria-hidden="true"></span>ילדים ונוער</li>
-          </ul>
-          <div class="sch-grid">
-          <div class="sch-day" id="sch-day-sun" role="tabpanel" aria-labelledby="sch-tab-sun" data-day="0">
-            <h3 class="sch-day-title">ראשון</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">06:00–07:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">07:00–08:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">09:15–10:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:00–17:00</span>
-                <span class="sch-name">נוער · קבוצה א׳</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">17:00–18:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-base">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name">יסודות 1</span>
-                <span class="sch-coach">סימונה הרצברג</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">Endurance</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name">קליסטניקס</span>
-                <span class="sch-coach">ענבל בן־זאב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">21:00–22:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-mon" role="tabpanel" aria-labelledby="sch-tab-mon" data-day="1">
-            <h3 class="sch-day-title">שני</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">09:15–10:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:00–17:00</span>
-                <span class="sch-name">נוער · קבוצה ב׳</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:10–17:00</span>
-                <span class="sch-name">ילדים <span dir="ltr">9–11</span></span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">17:00–18:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">17:10–18:00</span>
-                <span class="sch-name">ילדים <span dir="ltr">6–8</span></span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">Strength</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">21:00–22:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-tue" role="tabpanel" aria-labelledby="sch-tab-tue" data-day="2">
-            <h3 class="sch-day-title">שלישי</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">06:00–07:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">ענבל בן־זאב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">07:00–08:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">ענבל בן־זאב</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name">קליסטניקס</span>
-                <span class="sch-coach">ענבל בן־זאב</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">17:00–18:00</span>
-                <span class="sch-name">נוער</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">Endurance</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-base">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name">יסודות 2</span>
-                <span class="sch-coach">סימונה הרצברג</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">21:00–22:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-wed" role="tabpanel" aria-labelledby="sch-tab-wed" data-day="3">
-            <h3 class="sch-day-title">רביעי</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:00–17:00</span>
-                <span class="sch-name">נוער · קבוצה א׳</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:10–17:00</span>
-                <span class="sch-name">ילדים <span dir="ltr">9–11</span></span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">17:00–18:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">17:10–18:00</span>
-                <span class="sch-name">ילדים <span dir="ltr">6–8</span></span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סימונה הרצברג</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סימונה הרצברג</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">21:00–22:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סימונה הרצברג</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-thu" role="tabpanel" aria-labelledby="sch-tab-thu" data-day="4">
-            <h3 class="sch-day-title">חמישי</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">06:00–07:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">07:00–08:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">09:15–10:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אוולין וולך</span>
-              </li>
-              <li class="sch-slot sch-youth">
-                <span class="sch-time" dir="ltr">16:00–17:00</span>
-                <span class="sch-name">נוער · קבוצה ב׳</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">17:00–18:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">שימי פרץ</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">Strength</span>
-                <span class="sch-coach">אבירם גרטי</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבירם גרטי</span>
-              </li>
-              <li class="sch-slot sch-skill">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">Weightlifting / Skills</span>
-                <span class="sch-coach">אבירם גרטי</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">21:00–22:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבירם גרטי</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-fri" role="tabpanel" aria-labelledby="sch-tab-fri" data-day="5">
-            <h3 class="sch-day-title">שישי</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">07:15–08:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">08:15–09:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">09:15–10:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">טניה אוסטלוב</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">10:15–11:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">12:15–13:15</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">אבי קלצל</span>
-              </li>
-            </ul>
-          </div>
-          <div class="sch-day" id="sch-day-sat" role="tabpanel" aria-labelledby="sch-tab-sat" data-day="6">
-            <h3 class="sch-day-title">שבת</h3>
-            <ul class="sch-list">
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">18:00–19:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סטיבן וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">19:00–20:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סטיבן וולך</span>
-              </li>
-              <li class="sch-slot sch-wod">
-                <span class="sch-time" dir="ltr">20:00–21:00</span>
-                <span class="sch-name" dir="ltr">WOD</span>
-                <span class="sch-coach">סטיבן וולך</span>
-              </li>
-            </ul>
-          </div>
-          </div>
-          <p class="sch-note">* המערכת עשויה להשתנות בחגים ובשבועות מיוחדים. לשיעור ניסיון או לשאלות — <a class="font-bold text-primary-fg underline-offset-4 hover:underline" href="#contact">צרו קשר</a>.</p>
-        </div>
-      </div>
-    </section>
-    <script>
-      /* Schedule: below 1024px show one day at a time (today by default); desktop shows the whole week. */
-      (function () {
-        var root = document.getElementById('schWeek');
-        if (!root) return;
-        var tabs = root.querySelectorAll('.sch-tab'), days = root.querySelectorAll('.sch-day');
-        function show(i) {
-          for (var n = 0; n < tabs.length; n++) {
-            tabs[n].setAttribute('aria-selected', n === i ? 'true' : 'false');
-            tabs[n].tabIndex = n === i ? 0 : -1;
-            days[n].classList.toggle('is-active', n === i);
-          }
-        }
-        for (var n = 0; n < tabs.length; n++) (function (i) {
-          tabs[i].addEventListener('click', function () { show(i); });
-          tabs[i].addEventListener('keydown', function (e) {
-            var d = e.key === 'ArrowLeft' ? 1 : e.key === 'ArrowRight' ? -1 : 0;   /* RTL */
-            if (!d) return;
-            e.preventDefault();
-            var j = (i + d + tabs.length) % tabs.length; show(j); tabs[j].focus();
-          });
-        })(n);
-        root.classList.add('sch-js');
-        show(new Date().getDay());
-      })();
-    </script>
 
     <!-- ════════════════════ CONTACT / FOOTER ════════════════════ -->
     <footer class="zone-dark relative border-t border-line bg-base" id="contact">
