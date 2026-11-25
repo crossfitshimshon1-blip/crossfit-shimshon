@@ -207,6 +207,21 @@
     .sch-name { align-self: flex-start; font-weight: 800; font-size: 1rem; line-height: 1.25; color: rgb(var(--c-fg)); }
     .sch-coach { font-size: .8rem; font-weight: 500; color: rgb(var(--c-muted)); }
     .sch-note { margin-top: 1.25rem; text-align: center; font-size: .875rem; color: rgb(var(--c-muted)); }
+    /* phones/tablets: each day is a clean one-column list — workout + time per row, no coach */
+    @media (max-width: 1023.98px) {
+      .sch-grid { gap: .85rem; }
+      .sch-day { padding: .9rem 1rem .4rem; }
+      .sch-day-title { margin-bottom: .35rem; padding-bottom: .6rem; border-bottom: 2px solid rgb(var(--c-line)); text-align: start; font-size: 1.2rem; }
+      .sch-list { display: block; }
+      .sch-slot { flex-direction: row; align-items: center; justify-content: space-between; gap: .75rem; border: 0; border-bottom: 1px solid rgb(var(--c-line)); border-radius: 0; background: none; box-shadow: none; padding: .7rem 0; }
+      .sch-slot:last-child { border-bottom: 0; }
+      .sch-slot:hover { transform: none; box-shadow: none; }
+      .sch-slot::before { content: ""; width: .6rem; height: .6rem; flex: none; border-radius: .15rem; background: var(--tag); }
+      .sch-name { flex: 1; align-self: center; font-size: 1rem; text-align: start; }
+      .sch-name[dir="ltr"] { direction: rtl; }
+      .sch-time { order: 2; align-self: center; font-size: 1.1rem; white-space: nowrap; }
+      .sch-coach { display: none; }
+    }
     @media (min-width: 1024px) {
       .sch-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .6rem; align-items: start; }
       .sch-day { padding: .75rem .55rem; border-radius: 1rem; }
